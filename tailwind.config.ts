@@ -48,6 +48,9 @@ export default {
         "ming-teal": "hsl(var(--ming-teal))",
         "light-gray": "hsl(var(--light-gray))",
         "indigo-dye": "hsl(var(--indigo-dye))",
+        // Glass effect colors
+        "glass-bg": "var(--glass-bg)",
+        "glass-border": "var(--glass-border)",
       },
       backgroundImage: {
         'gradient-primary': 'var(--gradient-primary)',
