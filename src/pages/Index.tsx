@@ -32,67 +32,154 @@ const cx = (...classes: (string | boolean | undefined)[]) => {
   return classes.filter(Boolean).join(' ');
 };
 
-// Portfolio data
-const skillsData = {
-  Languages: ['JavaScript', 'TypeScript', 'Python', 'Java', 'C++', 'SQL'],
-  Frameworks: ['React', 'Node.js', 'Express', 'Next.js', 'Vue.js', 'Django'],
-  Tools: ['Git', 'Docker', 'VS Code', 'Postman', 'Figma', 'Webpack'],
-  Cloud: ['AWS', 'Google Cloud', 'Azure', 'Vercel', 'Heroku', 'Firebase']
-};
+// ==================== PORTFOLIO DATA CONFIGURATION ====================
+// 🎯 EASY EDITING: Add/remove items from these arrays to update your portfolio
 
-const projectsData = [
+// About Me Cards - Add/remove objects to customize your about section
+const aboutData = [
   {
-    id: 1,
-    title: 'E-Commerce Platform',
-    description: 'Full-stack e-commerce solution with payment integration and admin dashboard',
-    image: '/placeholder-project-1.jpg',
-    tech: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    liveDemo: '#',
-    github: '#'
+    icon: Heart,
+    title: "Brief",
+    description: "Computer Science student with a passion for problem-solving and innovation. I love building applications that make a difference and constantly learning new technologies.",
+    glowColor: "ming-teal"
   },
   {
-    id: 2,
-    title: 'Task Management App',
-    description: 'Collaborative task management with real-time updates and team features',
-    image: '/placeholder-project-2.jpg',
-    tech: ['Vue.js', 'Firebase', 'Tailwind CSS'],
-    liveDemo: '#',
-    github: '#'
+    icon: GraduationCap,
+    title: "Education", 
+    description: "Pursuing B.Tech in Computer Science Engineering. Active in coding communities, hackathons, and open-source contributions. Always eager to collaborate and learn.",
+    glowColor: "indigo-dye"
   },
   {
-    id: 3,
-    title: 'AI Chat Assistant',
-    description: 'Intelligent chatbot with natural language processing and context awareness',
-    image: '/placeholder-project-3.jpg',
-    tech: ['Python', 'OpenAI API', 'Flask', 'React'],
-    liveDemo: '#',
-    github: '#'
+    icon: Award,
+    title: "Exploring",
+    description: "Currently diving deep into AI/ML, cloud computing, and full-stack development. Interested in blockchain technology and its potential applications.",
+    glowColor: "accent"
   }
 ];
 
+// Skills Data - Add new categories or skills easily
+const skillsData = {
+  Languages: {
+    icon: Code,
+    skills: ['JavaScript', 'TypeScript', 'Python', 'Java', 'C++', 'SQL', 'Go', 'Rust'],
+    glowColor: 'ming-teal'
+  },
+  Frameworks: {
+    icon: Palette,
+    skills: ['React', 'Node.js', 'Express', 'Next.js', 'Vue.js', 'Django', 'FastAPI', 'Spring Boot'],
+    glowColor: 'indigo-dye'
+  },
+  Tools: {
+    icon: Server,
+    skills: ['Git', 'Docker', 'VS Code', 'Postman', 'Figma', 'Webpack', 'Kubernetes', 'Jenkins'],
+    glowColor: 'accent'
+  },
+  Cloud: {
+    icon: Cloud,
+    skills: ['AWS', 'Google Cloud', 'Azure', 'Vercel', 'Heroku', 'Firebase', 'DigitalOcean', 'Cloudflare'],
+    glowColor: 'primary'
+  }
+};
+
+// Projects Data - Add your projects here
+const projectsData = [
+  {
+    id: 1,
+    title: 'AI-Powered E-Commerce Platform',
+    description: 'Full-stack e-commerce solution with ML-based product recommendations, payment integration, and real-time analytics dashboard',
+    image: '/placeholder-project-1.jpg',
+    tech: ['React', 'Node.js', 'MongoDB', 'TensorFlow', 'Stripe', 'Redis'],
+    liveDemo: '#',
+    github: '#',
+    featured: true,
+    glowColor: 'ming-teal'
+  },
+  {
+    id: 2,
+    title: 'Real-Time Collaboration Suite',
+    description: 'Multi-user collaborative workspace with real-time editing, video calls, screen sharing, and integrated project management',
+    image: '/placeholder-project-2.jpg',
+    tech: ['Vue.js', 'Socket.io', 'WebRTC', 'Firebase', 'Tailwind CSS', 'Docker'],
+    liveDemo: '#',
+    github: '#',
+    featured: true,
+    glowColor: 'indigo-dye'
+  },
+  {
+    id: 3,
+    title: 'Blockchain Voting System',
+    description: 'Decentralized voting platform ensuring transparency and security with smart contracts and cryptographic verification',
+    image: '/placeholder-project-3.jpg',
+    tech: ['Solidity', 'Web3.js', 'React', 'Ethereum', 'IPFS', 'MetaMask'],
+    liveDemo: '#',
+    github: '#',
+    featured: true,
+    glowColor: 'accent'
+  },
+  {
+    id: 4,
+    title: 'Neural Network Visualizer',
+    description: 'Interactive tool for visualizing and understanding deep learning models with real-time training visualization',
+    image: '/placeholder-project-4.jpg',
+    tech: ['Python', 'TensorFlow', 'D3.js', 'Flask', 'WebGL', 'NumPy'],
+    liveDemo: '#',
+    github: '#',
+    featured: false,
+    glowColor: 'primary'
+  }
+];
+
+// Certifications Data - Add your certifications here
 const certificationsData = [
   {
     id: 1,
     title: 'AWS Certified Solutions Architect',
     organization: 'Amazon Web Services',
     year: '2024',
-    credentialUrl: '#'
+    credentialUrl: '#',
+    level: 'Professional',
+    glowColor: 'ming-teal'
   },
   {
     id: 2,
     title: 'Google Cloud Professional Developer',
     organization: 'Google Cloud',
     year: '2023',
-    credentialUrl: '#'
+    credentialUrl: '#',
+    level: 'Professional',
+    glowColor: 'indigo-dye'
   },
   {
     id: 3,
     title: 'Meta Front-End Developer',
     organization: 'Meta',
     year: '2023',
-    credentialUrl: '#'
+    credentialUrl: '#',
+    level: 'Professional',
+    glowColor: 'accent'
+  },
+  {
+    id: 4,
+    title: 'Kubernetes Administrator (CKA)',
+    organization: 'Cloud Native Computing Foundation',
+    year: '2024',
+    credentialUrl: '#',
+    level: 'Expert',
+    glowColor: 'primary'
   }
 ];
+
+// Contact Information - Edit your contact details
+const contactInfo = {
+  email: 'your.email@example.com',
+  phone: '+1 (555) 123-4567',
+  location: 'Your City, Country',
+  social: {
+    github: 'https://github.com/yourusername',
+    linkedin: 'https://linkedin.com/in/yourusername',
+    twitter: 'https://twitter.com/yourusername'
+  }
+};
 
 const Portfolio = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -304,43 +391,36 @@ const Portfolio = () => {
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <Heart className="h-8 w-8" />,
-                title: "Brief",
-                description: "Computer Science student with a passion for problem-solving and innovation. I love building applications that make a difference and constantly learning new technologies."
-              },
-              {
-                icon: <GraduationCap className="h-8 w-8" />,
-                title: "Education",
-                description: "Pursuing B.Tech in Computer Science Engineering. Active in coding communities, hackathons, and open-source contributions. Always eager to collaborate and learn."
-              },
-              {
-                icon: <Award className="h-8 w-8" />,
-                title: "Exploring",
-                description: "Currently diving deep into AI/ML, cloud computing, and full-stack development. Interested in blockchain technology and its potential applications."
-              }
-            ].map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                viewport={{ once: true }}
-              >
-                <Card className="glass-card shadow-medium hover:shadow-large transition-all duration-300">
-                  <CardHeader className="text-center">
-                    <div className="mx-auto mb-4 p-3 rounded-lg bg-primary/10 text-primary w-fit">
-                      {item.icon}
-                    </div>
-                    <CardTitle>{item.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground text-center">{item.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+            {aboutData.map((item, index) => {
+              const IconComponent = item.icon;
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                  viewport={{ once: true }}
+                  className="group"
+                >
+                  <Card className="glass-card shadow-medium hover:shadow-large transition-all duration-500 h-full relative overflow-hidden group-hover:scale-105">
+                    {/* Glow effect */}
+                    <div className={`absolute inset-0 bg-gradient-to-r from-${item.glowColor}/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+                    <div className={`absolute -inset-1 bg-gradient-to-r from-${item.glowColor}/20 to-transparent rounded-lg blur opacity-0 group-hover:opacity-75 transition-opacity duration-500 -z-10`}></div>
+                    
+                    <CardHeader className="text-center relative z-10">
+                      <div className={`mx-auto mb-4 p-3 rounded-lg bg-${item.glowColor}/10 text-${item.glowColor} w-fit relative group-hover:shadow-lg group-hover:shadow-${item.glowColor}/25 transition-all duration-500`}>
+                        <div className={`absolute inset-0 bg-${item.glowColor}/20 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+                        <IconComponent className="h-8 w-8 relative z-10" />
+                      </div>
+                      <CardTitle className="text-xl font-bold">{item.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="relative z-10">
+                      <p className="text-muted-foreground text-center leading-relaxed">{item.description}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -362,14 +442,8 @@ const Portfolio = () => {
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {Object.entries(skillsData).map(([category, skills], categoryIndex) => {
-              const icons = {
-                Languages: <Code className="h-6 w-6" />,
-                Frameworks: <Palette className="h-6 w-6" />,
-                Tools: <Server className="h-6 w-6" />,
-                Cloud: <Cloud className="h-6 w-6" />
-              };
-              
+            {Object.entries(skillsData).map(([category, data], categoryIndex) => {
+              const IconComponent = data.icon;
               return (
                 <motion.div
                   key={category}
@@ -377,23 +451,31 @@ const Portfolio = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: categoryIndex * 0.2 }}
                   viewport={{ once: true }}
+                  className="group"
                 >
-                  <Card className="glass-card shadow-medium h-full">
-                    <CardHeader className="text-center">
-                      <div className="mx-auto mb-2 p-2 rounded-lg bg-primary/10 text-primary w-fit">
-                        {icons[category as keyof typeof icons]}
+                  <Card className="glass-card shadow-medium h-full relative overflow-hidden group-hover:scale-105 transition-all duration-500">
+                    {/* Animated glow border */}
+                    <div className={`absolute -inset-1 bg-gradient-to-r from-${data.glowColor}/30 via-${data.glowColor}/50 to-${data.glowColor}/30 rounded-lg blur opacity-0 group-hover:opacity-75 transition-all duration-500 animate-pulse -z-10`}></div>
+                    
+                    <CardHeader className="text-center relative z-10">
+                      <div className={`mx-auto mb-2 p-3 rounded-lg bg-${data.glowColor}/10 text-${data.glowColor} w-fit relative group-hover:shadow-lg group-hover:shadow-${data.glowColor}/25 transition-all duration-500`}>
+                        <div className={`absolute inset-0 bg-${data.glowColor}/20 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+                        <IconComponent className="h-6 w-6 relative z-10" />
                       </div>
-                      <CardTitle className="text-lg">{category}</CardTitle>
+                      <CardTitle className="text-lg font-bold">{category}</CardTitle>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="relative z-10">
                       <div className="flex flex-wrap gap-2">
-                        {skills.map((skill) => (
-                          <span
+                        {data.skills.map((skill, skillIndex) => (
+                          <motion.span
                             key={skill}
-                            className="px-3 py-1 bg-secondary rounded-full text-sm font-medium text-secondary-foreground"
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.3, delay: skillIndex * 0.1 }}
+                            className={`px-3 py-1 bg-secondary/80 backdrop-blur-sm rounded-full text-sm font-medium text-secondary-foreground hover:bg-${data.glowColor}/20 hover:text-${data.glowColor} hover:shadow-md hover:shadow-${data.glowColor}/20 transition-all duration-300 cursor-default`}
                           >
                             {skill}
-                          </span>
+                          </motion.span>
                         ))}
                       </div>
                     </CardContent>
@@ -429,32 +511,56 @@ const Portfolio = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 viewport={{ once: true }}
+                className="group"
               >
-                <Card className="glass-card shadow-medium hover:shadow-large transition-all duration-300 h-full">
-                  <div className="h-48 bg-gradient-primary rounded-t-lg"></div>
-                  <CardHeader>
-                    <CardTitle>{project.title}</CardTitle>
-                    <CardDescription>{project.description}</CardDescription>
+                <Card className="glass-card shadow-medium hover:shadow-large transition-all duration-500 h-full relative overflow-hidden group-hover:scale-[1.02]">
+                  {/* Glow effects */}
+                  <div className={`absolute -inset-1 bg-gradient-to-r from-${project.glowColor}/20 via-${project.glowColor}/30 to-${project.glowColor}/20 rounded-lg blur opacity-0 group-hover:opacity-75 transition-all duration-500 -z-10`}></div>
+                  {project.featured && (
+                    <div className="absolute top-4 right-4 z-20">
+                      <span className={`px-2 py-1 bg-${project.glowColor}/90 text-white rounded-full text-xs font-bold shadow-lg shadow-${project.glowColor}/25`}>
+                        FEATURED
+                      </span>
+                    </div>
+                  )}
+                  
+                  <div className={`h-48 bg-gradient-to-br from-${project.glowColor}/80 via-${project.glowColor}/60 to-${project.glowColor}/40 rounded-t-lg relative overflow-hidden`}>
+                    <div className="absolute inset-0 bg-black/20"></div>
+                    <div className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 group-hover:animate-pulse`}></div>
+                  </div>
+                  
+                  <CardHeader className="relative z-10">
+                    <CardTitle className="text-xl font-bold group-hover:text-primary transition-colors duration-300">
+                      {project.title}
+                    </CardTitle>
+                    <CardDescription className="text-base leading-relaxed">
+                      {project.description}
+                    </CardDescription>
                   </CardHeader>
-                  <CardContent className="flex-1">
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tech.map((tech) => (
-                        <span
+                  
+                  <CardContent className="flex-1 relative z-10">
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {project.tech.map((tech, techIndex) => (
+                        <motion.span
                           key={tech}
-                          className="px-2 py-1 bg-primary/10 text-primary rounded text-xs font-medium"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.3, delay: techIndex * 0.1 }}
+                          className={`px-3 py-1 bg-${project.glowColor}/10 text-${project.glowColor} rounded-full text-xs font-medium hover:bg-${project.glowColor}/20 hover:shadow-md hover:shadow-${project.glowColor}/20 transition-all duration-300`}
                         >
                           {tech}
-                        </span>
+                        </motion.span>
                       ))}
                     </div>
-                    <div className="flex gap-2">
-                      <Button size="sm" className="flex-1" asChild>
+                    
+                    <div className="flex gap-3">
+                      <Button size="sm" className={`flex-1 gradient-primary hover:shadow-lg hover:shadow-primary/25 transition-all duration-300`} asChild>
                         <a href={project.liveDemo} target="_blank" rel="noopener noreferrer">
                           <ExternalLink className="h-4 w-4 mr-2" />
                           Live Demo
                         </a>
                       </Button>
-                      <Button size="sm" variant="outline" className="flex-1" asChild>
+                      <Button size="sm" variant="outline" className="flex-1 hover:shadow-lg transition-all duration-300" asChild>
                         <a href={project.github} target="_blank" rel="noopener noreferrer">
                           <Github className="h-4 w-4 mr-2" />
                           GitHub
@@ -493,19 +599,38 @@ const Portfolio = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 viewport={{ once: true }}
+                className="group"
               >
-                <Card className="glass-card shadow-medium hover:shadow-large transition-all duration-300">
-                  <CardHeader>
-                    <div className="flex justify-between items-start mb-2">
-                      <CardTitle className="text-lg">{cert.title}</CardTitle>
-                      <span className="px-2 py-1 bg-accent text-accent-foreground rounded text-xs font-medium">
-                        {cert.year}
-                      </span>
+                <Card className="glass-card shadow-medium hover:shadow-large transition-all duration-500 relative overflow-hidden group-hover:scale-105">
+                  {/* Glow border */}
+                  <div className={`absolute -inset-1 bg-gradient-to-r from-${cert.glowColor}/30 to-${cert.glowColor}/10 rounded-lg blur opacity-0 group-hover:opacity-75 transition-all duration-500 -z-10`}></div>
+                  
+                  <CardHeader className="relative z-10">
+                    <div className="flex justify-between items-start mb-3">
+                      <CardTitle className="text-lg font-bold group-hover:text-primary transition-colors duration-300 flex-1 pr-2">
+                        {cert.title}
+                      </CardTitle>
+                      <div className="flex flex-col gap-2">
+                        <span className={`px-3 py-1 bg-${cert.glowColor}/90 text-white rounded-full text-xs font-bold shadow-lg shadow-${cert.glowColor}/25`}>
+                          {cert.year}
+                        </span>
+                        <span className="px-2 py-1 bg-accent/20 text-accent rounded text-xs font-medium">
+                          {cert.level}
+                        </span>
+                      </div>
                     </div>
-                    <CardDescription>{cert.organization}</CardDescription>
+                    <CardDescription className="text-base font-medium text-muted-foreground">
+                      {cert.organization}
+                    </CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <Button variant="outline" size="sm" className="w-full" asChild>
+                  
+                  <CardContent className="relative z-10">
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className={`w-full hover:bg-${cert.glowColor}/10 hover:border-${cert.glowColor}/50 hover:text-${cert.glowColor} hover:shadow-md hover:shadow-${cert.glowColor}/20 transition-all duration-300`} 
+                      asChild
+                    >
                       <a href={cert.credentialUrl} target="_blank" rel="noopener noreferrer">
                         <Award className="h-4 w-4 mr-2" />
                         View Credential
@@ -639,7 +764,7 @@ const Portfolio = () => {
                   </div>
                   <div>
                     <div className="font-medium">Email</div>
-                    <div className="text-muted-foreground">your.email@example.com</div>
+                    <div className="text-muted-foreground">{contactInfo.email}</div>
                   </div>
                 </div>
                 
@@ -649,7 +774,7 @@ const Portfolio = () => {
                   </div>
                   <div>
                     <div className="font-medium">Location</div>
-                    <div className="text-muted-foreground">Your City, Country</div>
+                    <div className="text-muted-foreground">{contactInfo.location}</div>
                   </div>
                 </div>
                 
@@ -659,7 +784,7 @@ const Portfolio = () => {
                   </div>
                   <div>
                     <div className="font-medium">Phone</div>
-                    <div className="text-muted-foreground">+1 (555) 123-4567</div>
+                    <div className="text-muted-foreground">{contactInfo.phone}</div>
                   </div>
                 </div>
               </div>
