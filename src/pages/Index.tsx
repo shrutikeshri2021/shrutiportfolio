@@ -35,6 +35,50 @@ const cx = (...classes: (string | boolean | undefined)[]) => {
 // ==================== PORTFOLIO DATA CONFIGURATION ====================
 // 🎯 EASY EDITING: Add/remove items from these arrays to update your portfolio
 
+// Hero Section Data - Edit your personal information
+const heroData = {
+  name: "Shrutika Keshri",
+  title: "Aspiring Software Engineer • Full-Stack Developer • AI Enthusiast",
+  description: "Passionate about creating innovative solutions and building applications that make a difference."
+};
+
+// Experience Data - Add your work experience here
+const experienceData = [
+  {
+    id: 1,
+    title: "Full Stack Developer Intern",
+    company: "Tech Innovations Ltd",
+    duration: "June 2024 - August 2024",
+    location: "Remote",
+    description: "Developed responsive web applications using React and Node.js, improved application performance by 30%, and collaborated with cross-functional teams.",
+    technologies: ["React", "Node.js", "MongoDB", "Express", "Git"],
+    type: "Internship",
+    glowColor: "ming-teal"
+  },
+  {
+    id: 2,
+    title: "Frontend Developer",
+    company: "Digital Solutions Co",
+    duration: "January 2024 - May 2024",
+    location: "Hybrid",
+    description: "Built user-friendly interfaces for e-commerce platforms, implemented responsive designs, and optimized for mobile devices.",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Next.js"],
+    type: "Part-time",
+    glowColor: "indigo-dye"
+  },
+  {
+    id: 3,
+    title: "Web Development Freelancer",
+    company: "Self-Employed",
+    duration: "2023 - Present",
+    location: "Remote",
+    description: "Created custom websites for small businesses, implemented SEO best practices, and maintained client relationships.",
+    technologies: ["HTML", "CSS", "JavaScript", "WordPress", "PHP"],
+    type: "Freelance",
+    glowColor: "accent"
+  }
+];
+
 // About Me Cards - Add/remove objects to customize your about section
 const aboutData = [
   {
@@ -171,9 +215,9 @@ const certificationsData = [
 
 // Contact Information - Edit your contact details
 const contactInfo = {
-  email: 'your.email@example.com',
-  phone: '+1 (555) 123-4567',
-  location: 'Your City, Country',
+  email: 'shrutikeshri200423.uk@gmail.com',
+  phone: '+91 (XXX) XXX-XXXX',
+  location: 'India',
   social: {
     github: 'https://github.com/yourusername',
     linkedin: 'https://linkedin.com/in/yourusername',
@@ -213,45 +257,42 @@ const Portfolio = () => {
     }
   };
 
-  const handleFormSubmit = async (e: React.FormEvent) => {
+  const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    try {
-      // Try backend submission first
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-      
-      if (response.ok) {
-        toast({
-          title: "Message sent!",
-          description: "Thank you for your message. I'll get back to you soon!",
-        });
-        setFormData({ name: '', email: '', message: '' });
-      } else {
-        throw new Error('Backend not available');
-      }
-    } catch (error) {
-      // Fallback to mailto
-      const subject = encodeURIComponent('Portfolio Contact Form');
-      const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
-      window.location.href = `mailto:your.email@example.com?subject=${subject}&body=${body}`;
-      
-      toast({
-        title: "Redirecting to email",
-        description: "Opening your email client to send the message.",
-      });
-    }
+    // Direct email redirect
+    const subject = encodeURIComponent('Portfolio Contact Form - Message from ' + formData.name);
+    const body = encodeURIComponent(`Hi Shrutika,
+
+I'm reaching out through your portfolio website.
+
+Name: ${formData.name}
+Email: ${formData.email}
+
+Message:
+${formData.message}
+
+Best regards,
+${formData.name}`);
+    
+    window.location.href = `mailto:${contactInfo.email}?subject=${subject}&body=${body}`;
+    
+    toast({
+      title: "Redirecting to email",
+      description: "Opening your email client to send the message.",
+    });
+    
+    // Clear form after a short delay
+    setTimeout(() => {
+      setFormData({ name: '', email: '', message: '' });
+    }, 1000);
   };
 
   const navItems = [
     { label: 'Home', id: 'home' },
     { label: 'About', id: 'about' },
     { label: 'Skills', id: 'skills' },
+    { label: 'Experience', id: 'experience' },
     { label: 'Projects', id: 'projects' },
     { label: 'Certifications', id: 'certifications' },
     { label: 'Resume', id: 'resume' },
@@ -328,26 +369,32 @@ const Portfolio = () => {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center pt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section id="home" className="h-screen flex items-center justify-center pt-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[80vh]">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
+              className="space-y-6"
             >
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-                Hi, I'm <span className="gradient-text">Your Name</span>
-              </h1>
-              <p className="text-xl sm:text-2xl text-muted-foreground mb-8">
-                Aspiring Software Engineer • Full-Stack Developer • AI Enthusiast
-              </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="space-y-4">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+                  Hi, I'm <span className="gradient-text break-words">{heroData.name}</span>
+                </h1>
+                <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground leading-relaxed">
+                  {heroData.title}
+                </p>
+                <p className="text-base sm:text-lg text-muted-foreground max-w-lg">
+                  {heroData.description}
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-3 pt-4">
                 <Button onClick={() => scrollToSection('projects')} className="gradient-primary">
                   View Projects
                 </Button>
                 <Button onClick={() => scrollToSection('resume')} variant="outline">
-                  Download Resume
+                  View Resume
                 </Button>
                 <Button onClick={() => scrollToSection('contact')} variant="outline">
                   Get In Touch
@@ -359,14 +406,14 @@ const Portfolio = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="flex justify-center lg:justify-end"
+              className="flex justify-center lg:justify-end order-first lg:order-last"
             >
               <div className="relative">
-                <div className="absolute inset-0 gradient-primary rounded-full blur-2xl opacity-20"></div>
+                <div className="absolute inset-0 gradient-primary rounded-full blur-2xl opacity-20 animate-pulse"></div>
                 <img
                   src={heroImage}
-                  alt="Profile"
-                  className="relative w-80 h-80 rounded-full object-cover shadow-large"
+                  alt={`${heroData.name} - Profile Picture`}
+                  className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full object-cover shadow-large ring-4 ring-primary/20"
                 />
               </div>
             </motion.div>
@@ -487,8 +534,86 @@ const Portfolio = () => {
         </div>
       </section>
 
+      {/* Experience Section */}
+      <section id="experience" className="py-20 bg-muted/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Professional Experience</h2>
+            <p className="text-xl text-muted-foreground">
+              My journey in software development and technology
+            </p>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {experienceData.map((experience, index) => (
+              <motion.div
+                key={experience.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className="group"
+              >
+                <Card className="glass-card shadow-medium hover:shadow-large transition-all duration-500 h-full relative overflow-hidden group-hover:scale-105">
+                  {/* Glow effects */}
+                  <div className={`absolute -inset-1 bg-gradient-to-r from-${experience.glowColor}/20 via-${experience.glowColor}/30 to-${experience.glowColor}/20 rounded-lg blur opacity-0 group-hover:opacity-75 transition-all duration-500 -z-10`}></div>
+                  
+                  <CardHeader className="relative z-10">
+                    <div className="flex justify-between items-start mb-3">
+                      <div className="flex-1">
+                        <CardTitle className="text-lg font-bold group-hover:text-primary transition-colors duration-300 mb-2">
+                          {experience.title}
+                        </CardTitle>
+                        <div className="text-base font-semibold text-muted-foreground mb-1">
+                          {experience.company}
+                        </div>
+                        <div className="text-sm text-muted-foreground mb-2">
+                          {experience.duration}
+                        </div>
+                        <div className="text-sm text-muted-foreground">
+                          📍 {experience.location}
+                        </div>
+                      </div>
+                      <span className={`px-3 py-1 bg-${experience.glowColor}/90 text-white rounded-full text-xs font-bold shadow-lg shadow-${experience.glowColor}/25`}>
+                        {experience.type}
+                      </span>
+                    </div>
+                  </CardHeader>
+                  
+                  <CardContent className="relative z-10">
+                    <CardDescription className="text-sm leading-relaxed mb-4">
+                      {experience.description}
+                    </CardDescription>
+                    
+                    <div className="flex flex-wrap gap-2">
+                      {experience.technologies.map((tech, techIndex) => (
+                        <motion.span
+                          key={tech}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.3, delay: techIndex * 0.1 }}
+                          className={`px-2 py-1 bg-${experience.glowColor}/10 text-${experience.glowColor} rounded-full text-xs font-medium hover:bg-${experience.glowColor}/20 hover:shadow-md hover:shadow-${experience.glowColor}/20 transition-all duration-300`}
+                        >
+                          {tech}
+                        </motion.span>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-muted/30">
+      <section id="projects" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -658,9 +783,21 @@ const Portfolio = () => {
               Download my resume or view it online
             </p>
             
+            <div className="glass-card shadow-medium p-8 mb-8">
+              <div className="text-center mb-6">
+                <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
+                  <Download className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Ready to Download</h3>
+                <p className="text-muted-foreground text-sm">
+                  📝 Upload your resume PDF to <code>/public/resume.pdf</code> to enable downloads
+                </p>
+              </div>
+            </div>
+            
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="gradient-primary" asChild>
-                <a href="/resume.pdf" download>
+                <a href="/resume.pdf" download="Shrutika_Keshri_Resume.pdf">
                   <Download className="h-5 w-5 mr-2" />
                   Download Resume
                 </a>
@@ -798,7 +935,7 @@ const Portfolio = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-muted-foreground mb-4 md:mb-0">
-              © {new Date().getFullYear()} Your Name. All rights reserved.
+              © {new Date().getFullYear()} {heroData.name}. All rights reserved.
             </div>
             <div className="flex space-x-6">
               {navItems.map((item) => (
