@@ -37,8 +37,8 @@ const cx = (...classes: (string | boolean | undefined)[]) => {
 
 // Hero Section Data - Edit your personal information
 const heroData = {
-  name: "Shrutika Keshri",
-  title: "Aspiring Software Engineer • Full-Stack Developer • AI Enthusiast",
+  name: "Shruti Keshri",
+  title: "Aspiring Full-Stack Developer • Amazon ML School '25 • 2× Hackathon Winner • Microsoft (MLSA)& GSSoC Student Ambassador • Infosys Springboard Intern • CSE Undergrad (9+ CGPA) • Google WTM & IFERP Member",
   description: "Passionate about creating innovative solutions and building applications that make a difference."
 };
 
@@ -84,19 +84,19 @@ const aboutData = [
   {
     icon: Heart,
     title: "Brief",
-    description: "Computer Science student with a passion for problem-solving and innovation. I love building applications that make a difference and constantly learning new technologies.",
+    description: "B.Tech Computer Science student with a strong interest in problem-solving, scalable systems, and innovation. I enjoy translating ideas into reliable applications and continuously upskilling in modern technologies.",
     glowColor: "ming-teal"
   },
   {
     icon: GraduationCap,
     title: "Education", 
-    description: "Pursuing B.Tech in Computer Science Engineering. Active in coding communities, hackathons, and open-source contributions. Always eager to collaborate and learn.",
+    description: "Currently pursuing a B.Tech in Computer Science Engineering (GPA 9.1/10) at Malla Reddy Engineering College for Women, Hyderabad. Actively engaged in coding communities, hackathons, and open-source contributions, fostering collaboration and peer learning.",
     glowColor: "indigo-dye"
   },
   {
     icon: Award,
     title: "Exploring",
-    description: "Currently diving deep into AI/ML, cloud computing, and full-stack development. Interested in blockchain technology and its potential applications.",
+    description: "Deepening expertise in Artificial Intelligence, Machine Learning, Cloud Platforms, and Full-Stack Development, while also exploring blockchain technology and its emerging applications.",
     glowColor: "accent"
   }
 ];
@@ -105,22 +105,22 @@ const aboutData = [
 const skillsData = {
   Languages: {
     icon: Code,
-    skills: ['JavaScript', 'TypeScript', 'Python', 'Java', 'C++', 'SQL', 'Go', 'Rust'],
+    skills: ['JavaScript', 'Python', 'Java', 'C', 'SQL'],
     glowColor: 'ming-teal'
   },
   Frameworks: {
     icon: Palette,
-    skills: ['React', 'Node.js', 'Express', 'Next.js', 'Vue.js', 'Django', 'FastAPI', 'Spring Boot'],
+    skills: ['React', 'Node.js', 'Express', 'Next.js', 'Vue.js', 'Flask', 'Streamlit'],
     glowColor: 'indigo-dye'
   },
   Tools: {
     icon: Server,
-    skills: ['Git', 'Docker', 'VS Code', 'Postman', 'Figma', 'Webpack', 'Kubernetes', 'Jenkins'],
+    skills: ['Git', 'Canva', 'VS Code', 'Postman', 'Figma'],
     glowColor: 'accent'
   },
   Cloud: {
     icon: Cloud,
-    skills: ['AWS', 'Google Cloud', 'Azure', 'Vercel', 'Heroku', 'Firebase', 'DigitalOcean', 'Cloudflare'],
+    skills: ['Vercel', 'Supabase'],
     glowColor: 'primary'
   }
 };
@@ -305,7 +305,7 @@ ${formData.name}`);
       <nav className="fixed top-0 w-full z-50 glass-card shadow-medium">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="font-bold text-xl gradient-text">Portfolio</div>
+            <div className="font-bold text-xl gradient-text">Shruti Keshri</div>
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
@@ -432,9 +432,15 @@ ${formData.name}`);
             className="text-center mb-16"
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">About Me</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Passionate about creating innovative solutions and learning cutting-edge technologies
-            </p>
+            <div className="text-lg text-muted-foreground max-w-4xl mx-auto space-y-4">
+              <p>I am pursuing a B.Tech in Computer Science Engineering (GPA 9.1/10) at Malla Reddy Engineering College for Women, Hyderabad. With experience as a Microsoft Learn Student Ambassador, Infosys Springboard AI Intern, and Amazon ML Summer School student, I focus on creating real-world solutions using full-stack development, AI/ML, and cloud platforms.</p>
+              <p className="font-semibold">Key strengths include:</p>
+              <ul className="list-disc list-inside space-y-1 text-left max-w-2xl mx-auto">
+                <li>Delivering workshops and hackathons that have engaged 500+ students</li>
+                <li>Building scalable systems, and applications</li>
+                <li>Leading student communities that encourage peer learning and innovation</li>
+              </ul>
+            </div>
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
