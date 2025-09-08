@@ -140,10 +140,10 @@ const skillsData = {
 const projectsData = [
   {
     id: 1,
-    title: 'AI-Powered E-Commerce Platform',
-    description: 'Full-stack e-commerce solution with ML-based product recommendations, payment integration, and real-time analytics dashboard',
+    title: 'Slang Decoder (GenAI Translator)',
+    description: '🏆 3rd Prize – National Hackathon (150+ Teams) - AI-powered slang translator with OCR, speech-to-text, and multilingual output, enabling faster contextual understanding across languages.',
     image: '/placeholder-project-1.jpg',
-    tech: ['React', 'Node.js', 'MongoDB', 'TensorFlow', 'Stripe', 'Redis'],
+    tech: ['Python', 'Streamlit', 'Google Speech API', 'OCR', 'NLP'],
     liveDemo: '#',
     github: '#',
     featured: true,
@@ -151,10 +151,10 @@ const projectsData = [
   },
   {
     id: 2,
-    title: 'Real-Time Collaboration Suite',
-    description: 'Multi-user collaborative workspace with real-time editing, video calls, screen sharing, and integrated project management',
+    title: 'Dynamic Curriculum Mapping Dashboard',
+    description: 'Interactive dashboard aligning course outcomes with learning objectives, improving evaluation efficiency by 25%.',
     image: '/placeholder-project-2.jpg',
-    tech: ['Vue.js', 'Socket.io', 'WebRTC', 'Firebase', 'Tailwind CSS', 'Docker'],
+    tech: ['Firebase', 'JavaScript', 'Python', 'HTML/CSS'],
     liveDemo: '#',
     github: '#',
     featured: true,
@@ -162,10 +162,10 @@ const projectsData = [
   },
   {
     id: 3,
-    title: 'Blockchain Voting System',
-    description: 'Decentralized voting platform ensuring transparency and security with smart contracts and cryptographic verification',
+    title: 'E-Commerce Web Application',
+    description: 'Full-stack solution with product catalog, secure checkout, and basic analytics.',
     image: '/placeholder-project-3.jpg',
-    tech: ['Solidity', 'Web3.js', 'React', 'Ethereum', 'IPFS', 'MetaMask'],
+    tech: ['MERN Stack', 'REST APIs', 'Git/GitHub', 'Azure'],
     liveDemo: '#',
     github: '#',
     featured: true,
@@ -173,10 +173,10 @@ const projectsData = [
   },
   {
     id: 4,
-    title: 'Neural Network Visualizer',
-    description: 'Interactive tool for visualizing and understanding deep learning models with real-time training visualization',
+    title: 'Personal Portfolio Website',
+    description: 'Responsive, modular portfolio showcasing projects, skills, and achievements.',
     image: '/placeholder-project-4.jpg',
-    tech: ['Python', 'TensorFlow', 'D3.js', 'Flask', 'WebGL', 'NumPy'],
+    tech: ['HTML', 'CSS', 'JavaScript', 'Flutterflow (UI)', 'GitHub Pages'],
     liveDemo: '#',
     github: '#',
     featured: false,
@@ -188,8 +188,8 @@ const projectsData = [
 const certificationsData = [
   {
     id: 1,
-    title: 'AWS Certified Solutions Architect',
-    organization: 'Amazon Web Services',
+    title: 'Meta Full-Stack Developer Certificate',
+    organization: 'Meta',
     year: '2024',
     credentialUrl: '#',
     level: 'Professional',
@@ -197,41 +197,85 @@ const certificationsData = [
   },
   {
     id: 2,
-    title: 'Google Cloud Professional Developer',
-    organization: 'Google Cloud',
-    year: '2023',
+    title: 'Oracle Cloud Infrastructure Generative AI Professional (1Z0-1127-25)',
+    organization: 'Oracle',
+    year: '2025',
     credentialUrl: '#',
     level: 'Professional',
     glowColor: 'indigo-dye'
   },
   {
     id: 3,
-    title: 'Meta Front-End Developer',
-    organization: 'Meta',
-    year: '2023',
+    title: 'IBM AI Foundations',
+    organization: 'IBM SkillsBuild',
+    year: '2025',
     credentialUrl: '#',
-    level: 'Professional',
+    level: 'Foundation',
     glowColor: 'accent'
   },
   {
     id: 4,
-    title: 'Kubernetes Administrator (CKA)',
-    organization: 'Cloud Native Computing Foundation',
+    title: 'Google & EduSkills Generative AI Virtual Internship',
+    organization: 'Google Cloud',
     year: '2024',
     credentialUrl: '#',
-    level: 'Expert',
+    level: 'Professional',
     glowColor: 'primary'
+  },
+  {
+    id: 5,
+    title: 'Coursera Git & GitHub Certificate',
+    organization: 'Google/Coursera',
+    year: '2024',
+    credentialUrl: '#',
+    level: 'Professional',
+    glowColor: 'ming-teal'
+  },
+  {
+    id: 6,
+    title: 'Cisco Python Essentials',
+    organization: 'Cisco Networking Academy',
+    year: '2024',
+    credentialUrl: '#',
+    level: 'Foundation',
+    glowColor: 'indigo-dye'
+  },
+  {
+    id: 7,
+    title: 'C Programming Certificate',
+    organization: 'Cisco / University Collaboration',
+    year: '2024',
+    credentialUrl: '#',
+    level: 'Foundation',
+    glowColor: 'accent'
+  },
+  {
+    id: 8,
+    title: 'NPTEL Python Programming',
+    organization: 'IIT/NPTEL',
+    year: '2024',
+    credentialUrl: '#',
+    level: 'Professional',
+    glowColor: 'primary'
+  },
+  {
+    id: 9,
+    title: 'Microsoft Learn Student Ambassador',
+    organization: 'Microsoft',
+    year: '2025',
+    credentialUrl: '#',
+    level: 'Active',
+    glowColor: 'ming-teal'
   }
 ];
 
 // Contact Information - Edit your contact details
 const contactInfo = {
   email: 'shrutikeshri200423.uk@gmail.com',
-  phone: '+91 (XXX) XXX-XXXX',
   location: 'India',
   social: {
     github: 'https://github.com/yourusername',
-    linkedin: 'https://linkedin.com/in/yourusername',
+    linkedin: 'https://www.linkedin.com/in/shruti-keshri-123b30288/',
     twitter: 'https://twitter.com/yourusername'
   }
 };
@@ -380,9 +424,9 @@ ${formData.name}`);
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="h-screen flex items-center justify-center pt-24">
+      <section id="home" className="min-h-screen flex items-center justify-center pt-32 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[80vh]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
@@ -395,9 +439,6 @@ ${formData.name}`);
                 </h1>
                 <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground leading-relaxed">
                   {heroData.title}
-                </p>
-                <p className="text-base sm:text-lg text-muted-foreground max-w-lg">
-                  {heroData.description}
                 </p>
               </div>
               <div className="flex flex-wrap gap-3 pt-4">
@@ -433,7 +474,7 @@ ${formData.name}`);
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-muted/30">
+      <section id="about" className="py-32 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -442,8 +483,11 @@ ${formData.name}`);
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">About Me</h2>
-            <div className="text-lg text-muted-foreground max-w-4xl mx-auto space-y-4">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-8">About Me</h2>
+            <div className="text-lg text-muted-foreground max-w-4xl mx-auto space-y-6">
+              <p className="text-base sm:text-lg text-muted-foreground mb-8">
+                Passionate about creating innovative solutions and building applications that make a difference.
+              </p>
               <p>I am pursuing a B.Tech in Computer Science Engineering (GPA 9.1/10) at Malla Reddy Engineering College for Women, Hyderabad. With experience as a Microsoft Learn Student Ambassador, Infosys Springboard AI Intern, and Amazon ML Summer School student, I focus on creating real-world solutions using full-stack development, AI/ML, and cloud platforms.</p>
               <p className="font-semibold">Key strengths include:</p>
               <ul className="list-disc list-inside space-y-1 text-left max-w-2xl mx-auto">
@@ -934,11 +978,15 @@ ${formData.name}`);
                 
                 <div className="flex items-center space-x-3">
                   <div className="p-2 bg-primary/10 text-primary rounded-lg">
-                    <Phone className="h-5 w-5" />
+                    <Github className="h-5 w-5" />
                   </div>
                   <div>
-                    <div className="font-medium">Phone</div>
-                    <div className="text-muted-foreground">{contactInfo.phone}</div>
+                    <div className="font-medium">LinkedIn</div>
+                    <div className="text-muted-foreground">
+                      <a href={contactInfo.social.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                        View Profile
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
