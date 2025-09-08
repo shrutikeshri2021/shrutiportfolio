@@ -46,36 +46,47 @@ const heroData = {
 const experienceData = [
   {
     id: 1,
-    title: "Full Stack Developer Intern",
-    company: "Tech Innovations Ltd",
-    duration: "June 2024 - August 2024",
+    title: "AI Intern",
+    company: "Infosys Springboard",
+    duration: "2025",
     location: "Remote",
-    description: "Developed responsive web applications using React and Node.js, improved application performance by 30%, and collaborated with cross-functional teams.",
-    technologies: ["React", "Node.js", "MongoDB", "Express", "Git"],
-    type: "Internship",
+    description: "Focused on model development, data preprocessing, cloud deployment, and building scalable AI/ML pipelines.",
+    technologies: ["AI/ML", "Cloud Deployment", "Data Preprocessing", "Model Development"],
+    type: "Remote",
     glowColor: "ming-teal"
   },
   {
     id: 2,
-    title: "Frontend Developer",
-    company: "Digital Solutions Co",
-    duration: "January 2024 - May 2024",
-    location: "Hybrid",
-    description: "Built user-friendly interfaces for e-commerce platforms, implemented responsive designs, and optimized for mobile devices.",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Next.js"],
-    type: "Part-time",
+    title: "Microsoft Learn Student Ambassador",
+    company: "Microsoft",
+    duration: "Jul 2025 – Present",
+    location: "Remote",
+    description: "Delivered Azure, GitHub & AI/ML workshops to 500+ students and organized hackathons to boost cloud adoption.",
+    technologies: ["Azure", "GitHub", "AI/ML", "Workshop Delivery"],
+    type: "Remote",
     glowColor: "indigo-dye"
   },
   {
     id: 3,
-    title: "Web Development Freelancer",
-    company: "Self-Employed",
-    duration: "2023 - Present",
+    title: "Amazon ML Summer School Student",
+    company: "Amazon",
+    duration: "Aug 2025",
     location: "Remote",
-    description: "Created custom websites for small businesses, implemented SEO best practices, and maintained client relationships.",
-    technologies: ["HTML", "CSS", "JavaScript", "WordPress", "PHP"],
-    type: "Freelance",
+    description: "Selected nationally for MLSS 2025; completed advanced modules in Generative AI, NLP, RL, and Deep Learning.",
+    technologies: ["Generative AI", "NLP", "Reinforcement Learning", "Deep Learning"],
+    type: "Remote",
     glowColor: "accent"
+  },
+  {
+    id: 4,
+    title: "Founder",
+    company: "ILearn Community",
+    duration: "Mar 2025 – Present",
+    location: "Remote",
+    description: "Built a 500+ member tech community hosting workshops, mentorship, and peer-learning initiatives.",
+    technologies: ["Community Building", "Workshop Hosting", "Mentorship", "Leadership"],
+    type: "Remote",
+    glowColor: "primary"
   }
 ];
 
@@ -369,7 +380,7 @@ ${formData.name}`);
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="h-screen flex items-center justify-center pt-16">
+      <section id="home" className="h-screen flex items-center justify-center pt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[80vh]">
             <motion.div
@@ -411,7 +422,7 @@ ${formData.name}`);
               <div className="relative">
                 <div className="absolute inset-0 gradient-primary rounded-full blur-2xl opacity-20 animate-pulse"></div>
                 <img
-                  src={heroImage}
+                  src="/lovable-uploads/0f4942ee-ee61-4745-b3c6-79827d2bdc05.png"
                   alt={`${heroData.name} - Profile Picture`}
                   className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full object-cover shadow-large ring-4 ring-primary/20"
                 />
