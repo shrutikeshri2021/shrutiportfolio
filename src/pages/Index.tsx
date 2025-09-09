@@ -1,26 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Moon, 
-  Sun, 
-  Menu, 
-  X, 
-  Github, 
-  ExternalLink, 
-  Download, 
-  Eye, 
-  Mail, 
-  MapPin, 
-  Phone,
-  Code,
-  Palette,
-  Server,
-  Cloud,
-  Award,
-  GraduationCap,
-  Heart,
-  Linkedin
-} from 'lucide-react';
+import { Moon, Sun, Menu, X, Github, ExternalLink, Download, Eye, Mail, MapPin, Phone, Code, Palette, Server, Cloud, Award, GraduationCap, Heart, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -44,74 +24,65 @@ const heroData = {
 };
 
 // Experience Data - Add your work experience here
-const experienceData = [
-  {
-    id: 1,
-    title: "AI Intern",
-    company: "Infosys Springboard",
-    duration: "2025",
-    location: "Remote",
-    description: "Focused on model development, data preprocessing, cloud deployment, and building scalable AI/ML pipelines.",
-    technologies: ["AI/ML", "Cloud Deployment", "Data Preprocessing", "Model Development"],
-    type: "Remote",
-    glowColor: "ming-teal"
-  },
-  {
-    id: 2,
-    title: "Microsoft Learn Student Ambassador",
-    company: "Microsoft",
-    duration: "Jul 2025 – Present",
-    location: "Remote",
-    description: "Delivered Azure, GitHub & AI/ML workshops to 500+ students and organized hackathons to boost cloud adoption.",
-    technologies: ["Azure", "GitHub", "AI/ML", "Workshop Delivery"],
-    type: "Remote",
-    glowColor: "indigo-dye"
-  },
-  {
-    id: 3,
-    title: "Amazon ML Summer School Student",
-    company: "Amazon",
-    duration: "Aug 2025",
-    location: "Remote",
-    description: "Selected nationally for MLSS 2025; completed advanced modules in Generative AI, NLP, RL, and Deep Learning.",
-    technologies: ["Generative AI", "NLP", "Reinforcement Learning", "Deep Learning"],
-    type: "Remote",
-    glowColor: "accent"
-  },
-  {
-    id: 4,
-    title: "Founder",
-    company: "ILearn Community",
-    duration: "Mar 2025 – Present",
-    location: "Remote",
-    description: "Built a 500+ member tech community hosting workshops, mentorship, and peer-learning initiatives.",
-    technologies: ["Community Building", "Workshop Hosting", "Mentorship", "Leadership"],
-    type: "Remote",
-    glowColor: "primary"
-  }
-];
+const experienceData = [{
+  id: 1,
+  title: "AI Intern",
+  company: "Infosys Springboard",
+  duration: "2025",
+  location: "Remote",
+  description: "Focused on model development, data preprocessing, cloud deployment, and building scalable AI/ML pipelines.",
+  technologies: ["AI/ML", "Cloud Deployment", "Data Preprocessing", "Model Development"],
+  type: "Remote",
+  glowColor: "ming-teal"
+}, {
+  id: 2,
+  title: "Microsoft Learn Student Ambassador",
+  company: "Microsoft",
+  duration: "Jul 2025 – Present",
+  location: "Remote",
+  description: "Delivered Azure, GitHub & AI/ML workshops to 500+ students and organized hackathons to boost cloud adoption.",
+  technologies: ["Azure", "GitHub", "AI/ML", "Workshop Delivery"],
+  type: "Remote",
+  glowColor: "indigo-dye"
+}, {
+  id: 3,
+  title: "Amazon ML Summer School Student",
+  company: "Amazon",
+  duration: "Aug 2025",
+  location: "Remote",
+  description: "Selected nationally for MLSS 2025; completed advanced modules in Generative AI, NLP, RL, and Deep Learning.",
+  technologies: ["Generative AI", "NLP", "Reinforcement Learning", "Deep Learning"],
+  type: "Remote",
+  glowColor: "accent"
+}, {
+  id: 4,
+  title: "Founder",
+  company: "ILearn Community",
+  duration: "Mar 2025 – Present",
+  location: "Remote",
+  description: "Built a 500+ member tech community hosting workshops, mentorship, and peer-learning initiatives.",
+  technologies: ["Community Building", "Workshop Hosting", "Mentorship", "Leadership"],
+  type: "Remote",
+  glowColor: "primary"
+}];
 
 // About Me Cards - Add/remove objects to customize your about section
-const aboutData = [
-  {
-    icon: Heart,
-    title: "Brief",
-    description: "B.Tech Computer Science student with a strong interest in problem-solving, scalable systems, and innovation. I enjoy translating ideas into reliable applications and continuously upskilling in modern technologies.",
-    glowColor: "ming-teal"
-  },
-  {
-    icon: GraduationCap,
-    title: "Education", 
-    description: "Currently pursuing a B.Tech in Computer Science Engineering (GPA 9.1/10) at Malla Reddy Engineering College for Women, Hyderabad. Actively engaged in coding communities, hackathons, and open-source contributions, fostering collaboration and peer learning.",
-    glowColor: "indigo-dye"
-  },
-  {
-    icon: Award,
-    title: "Exploring",
-    description: "Deepening expertise in Artificial Intelligence, Machine Learning, Cloud Platforms, and Full-Stack Development, while also exploring blockchain technology and its emerging applications.",
-    glowColor: "accent"
-  }
-];
+const aboutData = [{
+  icon: Heart,
+  title: "Brief",
+  description: "B.Tech Computer Science student with a strong interest in problem-solving, scalable systems, and innovation. I enjoy translating ideas into reliable applications and continuously upskilling in modern technologies.",
+  glowColor: "ming-teal"
+}, {
+  icon: GraduationCap,
+  title: "Education",
+  description: "Currently pursuing a B.Tech in Computer Science Engineering (GPA 9.1/10) at Malla Reddy Engineering College for Women, Hyderabad. Actively engaged in coding communities, hackathons, and open-source contributions, fostering collaboration and peer learning.",
+  glowColor: "indigo-dye"
+}, {
+  icon: Award,
+  title: "Exploring",
+  description: "Deepening expertise in Artificial Intelligence, Machine Learning, Cloud Platforms, and Full-Stack Development, while also exploring blockchain technology and its emerging applications.",
+  glowColor: "accent"
+}];
 
 // Skills Data - Add new categories or skills easily
 const skillsData = {
@@ -138,146 +109,130 @@ const skillsData = {
 };
 
 // Projects Data - Add your projects here
-const projectsData = [
-  {
-    id: 1,
-    title: 'Slang Decoder (GenAI Translator)',
-    description: '🏆 3rd Prize – National Hackathon (150+ Teams) - AI-powered slang translator with OCR, speech-to-text, and multilingual output, enabling faster contextual understanding across languages.',
-    image: '/placeholder-project-1.jpg',
-    tech: ['Python', 'Streamlit', 'Google Speech API', 'OCR', 'NLP'],
-    liveDemo: '#',
-    github: '#',
-    featured: true,
-    glowColor: 'ming-teal'
-  },
-  {
-    id: 2,
-    title: 'Dynamic Curriculum Mapping Dashboard',
-    description: 'Interactive dashboard aligning course outcomes with learning objectives, improving evaluation efficiency by 25%.',
-    image: '/placeholder-project-2.jpg',
-    tech: ['Firebase', 'JavaScript', 'Python', 'HTML/CSS'],
-    liveDemo: '#',
-    github: '#',
-    featured: true,
-    glowColor: 'indigo-dye'
-  },
-  {
-    id: 3,
-    title: 'E-Commerce Web Application',
-    description: 'Full-stack solution with product catalog, secure checkout, and basic analytics.',
-    image: '/placeholder-project-3.jpg',
-    tech: ['MERN Stack', 'REST APIs', 'Git/GitHub', 'Azure'],
-    liveDemo: '#',
-    github: '#',
-    featured: true,
-    glowColor: 'accent'
-  },
-  {
-    id: 4,
-    title: 'Personal Portfolio Website',
-    description: 'Responsive, modular portfolio showcasing projects, skills, and achievements.',
-    image: '/placeholder-project-4.jpg',
-    tech: ['HTML', 'CSS', 'JavaScript', 'Flutterflow (UI)', 'GitHub Pages'],
-    liveDemo: '#',
-    github: '#',
-    featured: false,
-    glowColor: 'primary'
-  }
-];
+const projectsData = [{
+  id: 1,
+  title: 'Slang Decoder (GenAI Translator)',
+  description: '🏆 3rd Prize – National Hackathon (150+ Teams) - AI-powered slang translator with OCR, speech-to-text, and multilingual output, enabling faster contextual understanding across languages.',
+  image: '/placeholder-project-1.jpg',
+  tech: ['Python', 'Streamlit', 'Google Speech API', 'OCR', 'NLP'],
+  liveDemo: '#',
+  github: '#',
+  featured: true,
+  glowColor: 'ming-teal'
+}, {
+  id: 2,
+  title: 'Dynamic Curriculum Mapping Dashboard',
+  description: 'Interactive dashboard aligning course outcomes with learning objectives, improving evaluation efficiency by 25%.',
+  image: '/placeholder-project-2.jpg',
+  tech: ['Firebase', 'JavaScript', 'Python', 'HTML/CSS'],
+  liveDemo: '#',
+  github: '#',
+  featured: true,
+  glowColor: 'indigo-dye'
+}, {
+  id: 3,
+  title: 'E-Commerce Web Application',
+  description: 'Full-stack solution with product catalog, secure checkout, and basic analytics.',
+  image: '/placeholder-project-3.jpg',
+  tech: ['MERN Stack', 'REST APIs', 'Git/GitHub', 'Azure'],
+  liveDemo: '#',
+  github: '#',
+  featured: true,
+  glowColor: 'accent'
+}, {
+  id: 4,
+  title: 'Personal Portfolio Website',
+  description: 'Responsive, modular portfolio showcasing projects, skills, and achievements.',
+  image: '/placeholder-project-4.jpg',
+  tech: ['HTML', 'CSS', 'JavaScript', 'Flutterflow (UI)', 'GitHub Pages'],
+  liveDemo: '#',
+  github: '#',
+  featured: false,
+  glowColor: 'primary'
+}];
 
 // Certifications Data - Add your certifications here
-const certificationsData = [
-  {
-    id: 1,
-    title: 'Meta Full-Stack Developer Certificate',
-    organization: 'Meta',
-    year: '2024',
-    credentialUrl: '#',
-    level: 'Professional',
-    glowColor: 'ming-teal'
-  },
-  {
-    id: 2,
-    title: 'Oracle Cloud Infrastructure Generative AI Professional (1Z0-1127-25)',
-    organization: 'Oracle',
-    year: '2025',
-    credentialUrl: '#',
-    level: 'Professional',
-    glowColor: 'indigo-dye'
-  },
-  {
-    id: 3,
-    title: 'IBM AI Foundations',
-    organization: 'IBM SkillsBuild',
-    year: '2025',
-    credentialUrl: '#',
-    level: 'Foundation',
-    glowColor: 'accent'
-  },
-  {
-    id: 4,
-    title: 'Google & EduSkills Generative AI Virtual Internship',
-    organization: 'Google Cloud',
-    year: '2024',
-    credentialUrl: '#',
-    level: 'Professional',
-    glowColor: 'primary'
-  },
-  {
-    id: 5,
-    title: 'Coursera Git & GitHub Certificate',
-    organization: 'Google/Coursera',
-    year: '2024',
-    credentialUrl: '#',
-    level: 'Professional',
-    glowColor: 'ming-teal'
-  },
-  {
-    id: 6,
-    title: 'Cisco Python Essentials',
-    organization: 'Cisco Networking Academy',
-    year: '2024',
-    credentialUrl: '#',
-    level: 'Foundation',
-    glowColor: 'indigo-dye'
-  },
-  {
-    id: 7,
-    title: 'C Programming Certificate',
-    organization: 'Cisco / University Collaboration',
-    year: '2024',
-    credentialUrl: '#',
-    level: 'Foundation',
-    glowColor: 'accent'
-  },
-  {
-    id: 8,
-    title: 'NPTEL Python Programming',
-    organization: 'IIT/NPTEL',
-    year: '2024',
-    credentialUrl: '#',
-    level: 'Professional',
-    glowColor: 'primary'
-  },
-  {
-    id: 9,
-    title: 'Microsoft Learn Student Ambassador',
-    organization: 'Microsoft',
-    year: '2025',
-    credentialUrl: '#',
-    level: 'Active',
-    glowColor: 'ming-teal'
-  },
-  {
-    id: 10,
-    title: 'Oracle Cloud Infrastructure 2025 Developer Professional',
-    organization: 'Oracle',
-    year: '2025',
-    credentialUrl: '#',
-    level: 'Professional',
-    glowColor: 'indigo-dye'
-  }
-];
+const certificationsData = [{
+  id: 1,
+  title: 'Meta Full-Stack Developer Certificate',
+  organization: 'Meta',
+  year: '2024',
+  credentialUrl: '#',
+  level: 'Professional',
+  glowColor: 'ming-teal'
+}, {
+  id: 2,
+  title: 'Oracle Cloud Infrastructure Generative AI Professional (1Z0-1127-25)',
+  organization: 'Oracle',
+  year: '2025',
+  credentialUrl: '#',
+  level: 'Professional',
+  glowColor: 'indigo-dye'
+}, {
+  id: 3,
+  title: 'IBM AI Foundations',
+  organization: 'IBM SkillsBuild',
+  year: '2025',
+  credentialUrl: '#',
+  level: 'Foundation',
+  glowColor: 'accent'
+}, {
+  id: 4,
+  title: 'Google & EduSkills Generative AI Virtual Internship',
+  organization: 'Google Cloud',
+  year: '2024',
+  credentialUrl: '#',
+  level: 'Professional',
+  glowColor: 'primary'
+}, {
+  id: 5,
+  title: 'Coursera Git & GitHub Certificate',
+  organization: 'Google/Coursera',
+  year: '2024',
+  credentialUrl: '#',
+  level: 'Professional',
+  glowColor: 'ming-teal'
+}, {
+  id: 6,
+  title: 'Cisco Python Essentials',
+  organization: 'Cisco Networking Academy',
+  year: '2024',
+  credentialUrl: '#',
+  level: 'Foundation',
+  glowColor: 'indigo-dye'
+}, {
+  id: 7,
+  title: 'C Programming Certificate',
+  organization: 'Cisco / University Collaboration',
+  year: '2024',
+  credentialUrl: '#',
+  level: 'Foundation',
+  glowColor: 'accent'
+}, {
+  id: 8,
+  title: 'NPTEL Python Programming',
+  organization: 'IIT/NPTEL',
+  year: '2024',
+  credentialUrl: '#',
+  level: 'Professional',
+  glowColor: 'primary'
+}, {
+  id: 9,
+  title: 'Microsoft Learn Student Ambassador',
+  organization: 'Microsoft',
+  year: '2025',
+  credentialUrl: '#',
+  level: 'Active',
+  glowColor: 'ming-teal'
+}, {
+  id: 10,
+  title: 'Oracle Cloud Infrastructure 2025 Developer Professional',
+  organization: 'Oracle',
+  year: '2025',
+  credentialUrl: '#',
+  level: 'Professional',
+  glowColor: 'indigo-dye'
+}];
 
 // Contact Information - Edit your contact details
 const contactInfo = {
@@ -289,7 +244,6 @@ const contactInfo = {
     twitter: 'https://twitter.com/yourusername'
   }
 };
-
 const Portfolio = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -298,33 +252,33 @@ const Portfolio = () => {
     email: '',
     message: 'Hi Shruti, I\'m reaching out through your portfolio. Best regards,'
   });
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   useEffect(() => {
     // Check for dark mode preference
     const isDark = localStorage.getItem('darkMode') === 'true';
     setDarkMode(isDark);
     document.documentElement.classList.toggle('dark', isDark);
   }, []);
-
   const toggleDarkMode = () => {
     const newDarkMode = !darkMode;
     setDarkMode(newDarkMode);
     localStorage.setItem('darkMode', newDarkMode.toString());
     document.documentElement.classList.toggle('dark', newDarkMode);
   };
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({
+        behavior: 'smooth'
+      });
       setMobileMenuOpen(false);
     }
   };
-
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Direct email redirect
     const subject = encodeURIComponent('Portfolio Contact Form - Message from ' + formData.name);
     const body = encodeURIComponent(`Hi Shruti,
@@ -339,33 +293,47 @@ ${formData.message}
 
 Best regards,
 ${formData.name}`);
-    
     window.location.href = `mailto:${contactInfo.email}?subject=${subject}&body=${body}`;
-    
     toast({
       title: "Redirecting to email",
-      description: "Opening your email client to send the message.",
+      description: "Opening your email client to send the message."
     });
-    
+
     // Clear form after a short delay
     setTimeout(() => {
-      setFormData({ name: '', email: '', message: 'Hi Shruti, I\'m reaching out through your portfolio. Best regards,' });
+      setFormData({
+        name: '',
+        email: '',
+        message: 'Hi Shruti, I\'m reaching out through your portfolio. Best regards,'
+      });
     }, 1000);
   };
-
-  const navItems = [
-    { label: 'Home', id: 'home' },
-    { label: 'About', id: 'about' },
-    { label: 'Skills', id: 'skills' },
-    { label: 'Experience', id: 'experience' },
-    { label: 'Projects', id: 'projects' },
-    { label: 'Certifications', id: 'certifications' },
-    { label: 'Resume', id: 'resume' },
-    { label: 'Contact', id: 'contact' }
-  ];
-
-  return (
-    <div className="min-h-screen bg-background text-foreground">
+  const navItems = [{
+    label: 'Home',
+    id: 'home'
+  }, {
+    label: 'About',
+    id: 'about'
+  }, {
+    label: 'Skills',
+    id: 'skills'
+  }, {
+    label: 'Experience',
+    id: 'experience'
+  }, {
+    label: 'Projects',
+    id: 'projects'
+  }, {
+    label: 'Certifications',
+    id: 'certifications'
+  }, {
+    label: 'Resume',
+    id: 'resume'
+  }, {
+    label: 'Contact',
+    id: 'contact'
+  }];
+  return <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 glass-card shadow-medium">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -374,34 +342,18 @@ ${formData.name}`);
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="text-foreground hover:text-primary transition-colors duration-200"
-                >
+              {navItems.map(item => <button key={item.id} onClick={() => scrollToSection(item.id)} className="text-foreground hover:text-primary transition-colors duration-200">
                   {item.label}
-                </button>
-              ))}
+                </button>)}
             </div>
             
             {/* Theme Toggle & Mobile Menu */}
             <div className="flex items-center space-x-4">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={toggleDarkMode}
-                className="p-2"
-              >
+              <Button variant="ghost" size="sm" onClick={toggleDarkMode} className="p-2">
                 {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
               </Button>
               
-              <Button
-                variant="ghost"
-                size="sm"
-                className="md:hidden p-2"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              >
+              <Button variant="ghost" size="sm" className="md:hidden p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
                 {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </Button>
             </div>
@@ -410,26 +362,22 @@ ${formData.name}`);
         
         {/* Mobile Navigation */}
         <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden border-t border-border"
-            >
+          {mobileMenuOpen && <motion.div initial={{
+          opacity: 0,
+          height: 0
+        }} animate={{
+          opacity: 1,
+          height: 'auto'
+        }} exit={{
+          opacity: 0,
+          height: 0
+        }} className="md:hidden border-t border-border">
               <div className="px-4 py-2 space-y-1">
-                {navItems.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className="block w-full text-left py-2 text-foreground hover:text-primary transition-colors duration-200"
-                  >
+                {navItems.map(item => <button key={item.id} onClick={() => scrollToSection(item.id)} className="block w-full text-left py-2 text-foreground hover:text-primary transition-colors duration-200">
                     {item.label}
-                  </button>
-                ))}
+                  </button>)}
               </div>
-            </motion.div>
-          )}
+            </motion.div>}
         </AnimatePresence>
       </nav>
 
@@ -437,12 +385,15 @@ ${formData.name}`);
       <section id="home" className="min-h-screen flex items-center justify-center pt-32 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="space-y-6"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: 50
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.8
+          }} className="space-y-6">
               <div className="space-y-4">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
                   Hi, I'm <span className="gradient-text break-words">{heroData.name}</span>
@@ -464,19 +415,19 @@ ${formData.name}`);
               </div>
             </motion.div>
             
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="flex justify-center lg:justify-end order-first lg:order-last"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            scale: 0.8
+          }} animate={{
+            opacity: 1,
+            scale: 1
+          }} transition={{
+            duration: 0.8,
+            delay: 0.2
+          }} className="flex justify-center lg:justify-end order-first lg:order-last">
               <div className="relative">
                 <div className="absolute inset-0 gradient-primary rounded-full blur-2xl opacity-20 animate-pulse"></div>
-                <img
-                  src="/lovable-uploads/0f4942ee-ee61-4745-b3c6-79827d2bdc05.png"
-                  alt={`${heroData.name} - Profile Picture`}
-                  className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full object-cover shadow-large ring-4 ring-primary/20"
-                />
+                <img src="/lovable-uploads/0f4942ee-ee61-4745-b3c6-79827d2bdc05.png" alt={`${heroData.name} - Profile Picture`} className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full object-cover shadow-large ring-4 ring-primary/20" />
               </div>
             </motion.div>
           </div>
@@ -486,13 +437,17 @@ ${formData.name}`);
       {/* About Section */}
       <section id="about" className="py-32 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 50
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.8
+        }} viewport={{
+          once: true
+        }} className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-8">About Me</h2>
             <div className="text-lg text-muted-foreground max-w-4xl mx-auto space-y-6">
               <div className="space-y-4 text-left">
@@ -512,16 +467,19 @@ ${formData.name}`);
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {aboutData.map((item, index) => {
-              const IconComponent = item.icon;
-              return (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.2 }}
-                  viewport={{ once: true }}
-                  className="group"
-                >
+            const IconComponent = item.icon;
+            return <motion.div key={item.title} initial={{
+              opacity: 0,
+              y: 50
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} transition={{
+              duration: 0.8,
+              delay: index * 0.2
+            }} viewport={{
+              once: true
+            }} className="group">
                   <Card className="glass-card shadow-medium hover:shadow-large transition-all duration-500 h-full relative overflow-hidden group-hover:scale-105">
                     {/* Glow effect */}
                     <div className={`absolute inset-0 bg-gradient-to-r from-${item.glowColor}/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
@@ -538,9 +496,8 @@ ${formData.name}`);
                       <p className="text-muted-foreground text-center leading-relaxed">{item.description}</p>
                     </CardContent>
                   </Card>
-                </motion.div>
-              );
-            })}
+                </motion.div>;
+          })}
           </div>
         </div>
       </section>
@@ -548,13 +505,17 @@ ${formData.name}`);
       {/* Skills Section */}
       <section id="skills" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 50
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.8
+        }} viewport={{
+          once: true
+        }} className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">Skills & Technologies</h2>
             <p className="text-xl text-muted-foreground">
               Tools and technologies I work with
@@ -563,16 +524,19 @@ ${formData.name}`);
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {Object.entries(skillsData).map(([category, data], categoryIndex) => {
-              const IconComponent = data.icon;
-              return (
-                <motion.div
-                  key={category}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: categoryIndex * 0.2 }}
-                  viewport={{ once: true }}
-                  className="group"
-                >
+            const IconComponent = data.icon;
+            return <motion.div key={category} initial={{
+              opacity: 0,
+              y: 50
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} transition={{
+              duration: 0.8,
+              delay: categoryIndex * 0.2
+            }} viewport={{
+              once: true
+            }} className="group">
                   <Card className="glass-card shadow-medium h-full relative overflow-hidden group-hover:scale-105 transition-all duration-500">
                     {/* Animated glow border */}
                     <div className={`absolute -inset-1 bg-gradient-to-r from-${data.glowColor}/30 via-${data.glowColor}/50 to-${data.glowColor}/30 rounded-lg blur opacity-0 group-hover:opacity-75 transition-all duration-500 animate-pulse -z-10`}></div>
@@ -586,23 +550,23 @@ ${formData.name}`);
                     </CardHeader>
                     <CardContent className="relative z-10">
                       <div className="flex flex-wrap gap-2">
-                        {data.skills.map((skill, skillIndex) => (
-                          <motion.span
-                            key={skill}
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.3, delay: skillIndex * 0.1 }}
-                            className={`px-3 py-1 bg-secondary/80 backdrop-blur-sm rounded-full text-sm font-medium text-secondary-foreground hover:bg-${data.glowColor}/20 hover:text-${data.glowColor} hover:shadow-md hover:shadow-${data.glowColor}/20 transition-all duration-300 cursor-default`}
-                          >
+                        {data.skills.map((skill, skillIndex) => <motion.span key={skill} initial={{
+                      opacity: 0,
+                      scale: 0.8
+                    }} whileInView={{
+                      opacity: 1,
+                      scale: 1
+                    }} transition={{
+                      duration: 0.3,
+                      delay: skillIndex * 0.1
+                    }} className={`px-3 py-1 bg-secondary/80 backdrop-blur-sm rounded-full text-sm font-medium text-secondary-foreground hover:bg-${data.glowColor}/20 hover:text-${data.glowColor} hover:shadow-md hover:shadow-${data.glowColor}/20 transition-all duration-300 cursor-default`}>
                             {skill}
-                          </motion.span>
-                        ))}
+                          </motion.span>)}
                       </div>
                     </CardContent>
                   </Card>
-                </motion.div>
-              );
-            })}
+                </motion.div>;
+          })}
           </div>
         </div>
       </section>
@@ -610,29 +574,36 @@ ${formData.name}`);
       {/* Experience Section */}
       <section id="experience" className="py-20 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Professional Experience</h2>
+          <motion.div initial={{
+          opacity: 0,
+          y: 50
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.8
+        }} viewport={{
+          once: true
+        }} className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Experience</h2>
             <p className="text-xl text-muted-foreground">
               My journey in software development and technology
             </p>
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {experienceData.map((experience, index) => (
-              <motion.div
-                key={experience.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                className="group"
-              >
+            {experienceData.map((experience, index) => <motion.div key={experience.id} initial={{
+            opacity: 0,
+            y: 50
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.8,
+            delay: index * 0.2
+          }} viewport={{
+            once: true
+          }} className="group">
                 <Card className="glass-card shadow-medium hover:shadow-large transition-all duration-500 h-full relative overflow-hidden group-hover:scale-105">
                   {/* Glow effects */}
                   <div className={`absolute -inset-1 bg-gradient-to-r from-${experience.glowColor}/20 via-${experience.glowColor}/30 to-${experience.glowColor}/20 rounded-lg blur opacity-0 group-hover:opacity-75 transition-all duration-500 -z-10`}></div>
@@ -665,22 +636,22 @@ ${formData.name}`);
                     </CardDescription>
                     
                     <div className="flex flex-wrap gap-2">
-                      {experience.technologies.map((tech, techIndex) => (
-                        <motion.span
-                          key={tech}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.3, delay: techIndex * 0.1 }}
-                          className={`px-2 py-1 bg-${experience.glowColor}/10 text-${experience.glowColor} rounded-full text-xs font-medium hover:bg-${experience.glowColor}/20 hover:shadow-md hover:shadow-${experience.glowColor}/20 transition-all duration-300`}
-                        >
+                      {experience.technologies.map((tech, techIndex) => <motion.span key={tech} initial={{
+                    opacity: 0,
+                    scale: 0.8
+                  }} whileInView={{
+                    opacity: 1,
+                    scale: 1
+                  }} transition={{
+                    duration: 0.3,
+                    delay: techIndex * 0.1
+                  }} className={`px-2 py-1 bg-${experience.glowColor}/10 text-${experience.glowColor} rounded-full text-xs font-medium hover:bg-${experience.glowColor}/20 hover:shadow-md hover:shadow-${experience.glowColor}/20 transition-all duration-300`}>
                           {tech}
-                        </motion.span>
-                      ))}
+                        </motion.span>)}
                     </div>
                   </CardContent>
                 </Card>
-              </motion.div>
-            ))}
+              </motion.div>)}
           </div>
         </div>
       </section>
@@ -688,13 +659,17 @@ ${formData.name}`);
       {/* Projects Section */}
       <section id="projects" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 50
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.8
+        }} viewport={{
+          once: true
+        }} className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">Featured Projects</h2>
             <p className="text-xl text-muted-foreground">
               Some of my recent work and hackathon achievements
@@ -702,25 +677,26 @@ ${formData.name}`);
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projectsData.map((project, index) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                className="group"
-              >
+            {projectsData.map((project, index) => <motion.div key={project.id} initial={{
+            opacity: 0,
+            y: 50
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.8,
+            delay: index * 0.2
+          }} viewport={{
+            once: true
+          }} className="group">
                 <Card className="glass-card shadow-medium hover:shadow-large transition-all duration-500 h-full relative overflow-hidden group-hover:scale-[1.02]">
                   {/* Glow effects */}
                   <div className={`absolute -inset-1 bg-gradient-to-r from-${project.glowColor}/20 via-${project.glowColor}/30 to-${project.glowColor}/20 rounded-lg blur opacity-0 group-hover:opacity-75 transition-all duration-500 -z-10`}></div>
-                  {project.featured && (
-                    <div className="absolute top-4 right-4 z-20">
+                  {project.featured && <div className="absolute top-4 right-4 z-20">
                       <span className={`px-2 py-1 bg-${project.glowColor}/90 text-white rounded-full text-xs font-bold shadow-lg shadow-${project.glowColor}/25`}>
                         FEATURED
                       </span>
-                    </div>
-                  )}
+                    </div>}
                   
                   <div className={`h-48 bg-gradient-to-br from-${project.glowColor}/80 via-${project.glowColor}/60 to-${project.glowColor}/40 rounded-t-lg relative overflow-hidden`}>
                     <div className="absolute inset-0 bg-black/20"></div>
@@ -738,17 +714,18 @@ ${formData.name}`);
                   
                   <CardContent className="flex-1 relative z-10">
                     <div className="flex flex-wrap gap-2 mb-6">
-                      {project.tech.map((tech, techIndex) => (
-                        <motion.span
-                          key={tech}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.3, delay: techIndex * 0.1 }}
-                          className={`px-3 py-1 bg-${project.glowColor}/10 text-${project.glowColor} rounded-full text-xs font-medium hover:bg-${project.glowColor}/20 hover:shadow-md hover:shadow-${project.glowColor}/20 transition-all duration-300`}
-                        >
+                      {project.tech.map((tech, techIndex) => <motion.span key={tech} initial={{
+                    opacity: 0,
+                    scale: 0.8
+                  }} whileInView={{
+                    opacity: 1,
+                    scale: 1
+                  }} transition={{
+                    duration: 0.3,
+                    delay: techIndex * 0.1
+                  }} className={`px-3 py-1 bg-${project.glowColor}/10 text-${project.glowColor} rounded-full text-xs font-medium hover:bg-${project.glowColor}/20 hover:shadow-md hover:shadow-${project.glowColor}/20 transition-all duration-300`}>
                           {tech}
-                        </motion.span>
-                      ))}
+                        </motion.span>)}
                     </div>
                     
                     <div className="flex gap-3">
@@ -767,8 +744,7 @@ ${formData.name}`);
                     </div>
                   </CardContent>
                 </Card>
-              </motion.div>
-            ))}
+              </motion.div>)}
           </div>
         </div>
       </section>
@@ -776,13 +752,17 @@ ${formData.name}`);
       {/* Certifications Section */}
       <section id="certifications" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 50
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.8
+        }} viewport={{
+          once: true
+        }} className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">Certifications & Credentials</h2>
             <p className="text-xl text-muted-foreground">
               Professional certifications and achievements
@@ -790,15 +770,18 @@ ${formData.name}`);
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {certificationsData.map((cert, index) => (
-              <motion.div
-                key={cert.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                className="group"
-              >
+            {certificationsData.map((cert, index) => <motion.div key={cert.id} initial={{
+            opacity: 0,
+            y: 50
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.8,
+            delay: index * 0.2
+          }} viewport={{
+            once: true
+          }} className="group">
                 <Card className="glass-card shadow-medium hover:shadow-large transition-all duration-500 relative overflow-hidden group-hover:scale-105">
                   {/* Glow border */}
                   <div className={`absolute -inset-1 bg-gradient-to-r from-${cert.glowColor}/30 to-${cert.glowColor}/10 rounded-lg blur opacity-0 group-hover:opacity-75 transition-all duration-500 -z-10`}></div>
@@ -823,12 +806,7 @@ ${formData.name}`);
                   </CardHeader>
                   
                   <CardContent className="relative z-10">
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
-                      className={`w-full hover:bg-${cert.glowColor}/10 hover:border-${cert.glowColor}/50 hover:text-${cert.glowColor} hover:shadow-md hover:shadow-${cert.glowColor}/20 transition-all duration-300`} 
-                      asChild
-                    >
+                    <Button variant="outline" size="sm" className={`w-full hover:bg-${cert.glowColor}/10 hover:border-${cert.glowColor}/50 hover:text-${cert.glowColor} hover:shadow-md hover:shadow-${cert.glowColor}/20 transition-all duration-300`} asChild>
                       <a href={cert.credentialUrl} target="_blank" rel="noopener noreferrer">
                         <Award className="h-4 w-4 mr-2" />
                         View Credential
@@ -836,8 +814,7 @@ ${formData.name}`);
                     </Button>
                   </CardContent>
                 </Card>
-              </motion.div>
-            ))}
+              </motion.div>)}
           </div>
         </div>
       </section>
@@ -845,12 +822,17 @@ ${formData.name}`);
       {/* Resume Section */}
       <section id="resume" className="py-20 bg-muted/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 50
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.8
+        }} viewport={{
+          once: true
+        }}>
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">Resume</h2>
             <p className="text-xl text-muted-foreground mb-8">
               Download my resume or view it online
@@ -889,13 +871,17 @@ ${formData.name}`);
       {/* Contact Section */}
       <section id="contact" className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 50
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.8
+        }} viewport={{
+          once: true
+        }} className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">Get In Touch</h2>
             <p className="text-xl text-muted-foreground">
               Let's discuss opportunities and collaborate on exciting projects
@@ -903,12 +889,17 @@ ${formData.name}`);
           </motion.div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
+            <motion.div initial={{
+            opacity: 0,
+            x: -50
+          }} whileInView={{
+            opacity: 1,
+            x: 0
+          }} transition={{
+            duration: 0.8
+          }} viewport={{
+            once: true
+          }}>
               <Card className="glass-card shadow-medium">
                 <CardHeader>
                   <CardTitle>Send me a message</CardTitle>
@@ -919,30 +910,22 @@ ${formData.name}`);
                 <CardContent>
                   <form onSubmit={handleFormSubmit} className="space-y-4">
                     <div>
-                      <Input
-                        placeholder="Your Name"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        required
-                      />
+                      <Input placeholder="Your Name" value={formData.name} onChange={e => setFormData({
+                      ...formData,
+                      name: e.target.value
+                    })} required />
                     </div>
                     <div>
-                      <Input
-                        type="email"
-                        placeholder="Your Email"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        required
-                      />
+                      <Input type="email" placeholder="Your Email" value={formData.email} onChange={e => setFormData({
+                      ...formData,
+                      email: e.target.value
+                    })} required />
                     </div>
                     <div>
-                      <Textarea
-                        placeholder="Your Message"
-                        rows={4}
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        required
-                      />
+                      <Textarea placeholder="Your Message" rows={4} value={formData.message} onChange={e => setFormData({
+                      ...formData,
+                      message: e.target.value
+                    })} required />
                     </div>
                     <Button type="submit" className="w-full gradient-primary">
                       <Mail className="h-4 w-4 mr-2" />
@@ -953,13 +936,17 @@ ${formData.name}`);
               </Card>
             </motion.div>
             
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="space-y-6"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            x: 50
+          }} whileInView={{
+            opacity: 1,
+            x: 0
+          }} transition={{
+            duration: 0.8
+          }} viewport={{
+            once: true
+          }} className="space-y-6">
               <div>
                 <h3 className="text-2xl font-bold mb-4">Let's Connect</h3>
                 <p className="text-muted-foreground mb-6">
@@ -1037,8 +1024,6 @@ ${formData.name}`);
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Portfolio;
