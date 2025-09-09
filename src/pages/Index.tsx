@@ -112,7 +112,7 @@ const skillsData = {
 const projectsData = [{
   id: 1,
   title: 'Slang Decoder (GenAI Translator)',
-  description: '🏆 3rd Prize – National Hackathon (150+ Teams) - AI-powered slang translator with OCR, speech-to-text, and multilingual output, enabling faster contextual understanding across languages.',
+  description: '🏆 2nd Prize – National Hackathon (150+ Teams) - AI-powered slang translator with OCR, speech-to-text, and multilingual output, enabling faster contextual understanding across languages.',
   image: '/placeholder-project-1.jpg',
   tech: ['Python', 'Streamlit', 'Google Speech API', 'OCR', 'NLP'],
   liveDemo: '#',
