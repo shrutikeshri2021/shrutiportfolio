@@ -698,9 +698,14 @@ ${formData.name}`);
                       </span>
                     </div>}
                   
-                  <div className={`h-48 bg-gradient-to-br from-${project.glowColor}/80 via-${project.glowColor}/60 to-${project.glowColor}/40 rounded-t-lg relative overflow-hidden`}>
-                    <div className="absolute inset-0 bg-black/20"></div>
-                    <div className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 group-hover:animate-pulse`}></div>
+                  <div className="h-48 relative overflow-hidden rounded-t-lg">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500"></div>
+                    <div className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
                   </div>
                   
                   <CardHeader className="relative z-10">
