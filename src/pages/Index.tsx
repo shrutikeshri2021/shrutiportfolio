@@ -18,7 +18,8 @@ import {
   Cloud,
   Award,
   GraduationCap,
-  Heart
+  Heart,
+  Linkedin
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -126,7 +127,7 @@ const skillsData = {
   },
   Tools: {
     icon: Server,
-    skills: ['Git', 'Canva', 'VS Code', 'Postman', 'Figma'],
+    skills: ['Git', 'Canva', 'VS Code', 'Postman', 'Figma', 'Excel', 'PowerBI'],
     glowColor: 'accent'
   },
   Cloud: {
@@ -266,6 +267,15 @@ const certificationsData = [
     credentialUrl: '#',
     level: 'Active',
     glowColor: 'ming-teal'
+  },
+  {
+    id: 10,
+    title: 'Oracle Cloud Infrastructure 2025 Developer Professional',
+    organization: 'Oracle',
+    year: '2025',
+    credentialUrl: '#',
+    level: 'Professional',
+    glowColor: 'indigo-dye'
   }
 ];
 
@@ -274,7 +284,7 @@ const contactInfo = {
   email: 'shrutikeshri200423.uk@gmail.com',
   location: 'India',
   social: {
-    github: 'https://github.com/yourusername',
+    github: 'https://github.com/shrutikeshri2021',
     linkedin: 'https://www.linkedin.com/in/shruti-keshri-123b30288/',
     twitter: 'https://twitter.com/yourusername'
   }
@@ -286,7 +296,7 @@ const Portfolio = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: 'Hi Shruti, I\'m reaching out through your portfolio. Best regards,'
   });
   const { toast } = useToast();
 
@@ -317,7 +327,7 @@ const Portfolio = () => {
     
     // Direct email redirect
     const subject = encodeURIComponent('Portfolio Contact Form - Message from ' + formData.name);
-    const body = encodeURIComponent(`Hi Shrutika,
+    const body = encodeURIComponent(`Hi Shruti,
 
 I'm reaching out through your portfolio website.
 
@@ -339,7 +349,7 @@ ${formData.name}`);
     
     // Clear form after a short delay
     setTimeout(() => {
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '', message: 'Hi Shruti, I\'m reaching out through your portfolio. Best regards,' });
     }, 1000);
   };
 
@@ -485,16 +495,18 @@ ${formData.name}`);
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-8">About Me</h2>
             <div className="text-lg text-muted-foreground max-w-4xl mx-auto space-y-6">
-              <p className="text-base sm:text-lg text-muted-foreground mb-8">
-                Passionate about creating innovative solutions and building applications that make a difference.
-              </p>
-              <p>I am pursuing a B.Tech in Computer Science Engineering (GPA 9.1/10) at Malla Reddy Engineering College for Women, Hyderabad. With experience as a Microsoft Learn Student Ambassador, Infosys Springboard AI Intern, and Amazon ML Summer School student, I focus on creating real-world solutions using full-stack development, AI/ML, and cloud platforms.</p>
-              <p className="font-semibold">Key strengths include:</p>
-              <ul className="list-disc list-inside space-y-1 text-left max-w-2xl mx-auto">
-                <li>Delivering workshops and hackathons that have engaged 500+ students</li>
-                <li>Building scalable systems, and applications</li>
-                <li>Leading student communities that encourage peer learning and innovation</li>
-              </ul>
+              <div className="space-y-4 text-left">
+                <ul className="list-disc list-inside space-y-2">
+                  <li>Computer Science Engineering undergraduate (CGPA 9.1/10)</li>
+                  <li>Experience as a Microsoft Learn Student Ambassador, Amazon ML Summer School Trainee, and Infosys Springboard AI Intern</li>
+                  <li>Founder of the iLearn Community (500+ members)</li>
+                  <li>Active member of Google Women Techmakers</li>
+                  <li>Strong technical skills in C, Python, Java, JavaScript, SQL, and MERN Stack</li>
+                  <li>Passionate about building scalable, user-focused solutions</li>
+                  <li>Currently enhancing DSA and problem-solving skills</li>
+                  <li>Open to opportunities in software and full-stack development</li>
+                </ul>
+              </div>
             </div>
           </motion.div>
           
@@ -685,7 +697,7 @@ ${formData.name}`);
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">Featured Projects</h2>
             <p className="text-xl text-muted-foreground">
-              Some of my recent work and side projects
+              Some of my recent work and hackathon achievements
             </p>
           </motion.div>
           
@@ -771,7 +783,7 @@ ${formData.name}`);
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Certifications</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Certifications & Credentials</h2>
             <p className="text-xl text-muted-foreground">
               Professional certifications and achievements
             </p>
@@ -978,12 +990,26 @@ ${formData.name}`);
                 
                 <div className="flex items-center space-x-3">
                   <div className="p-2 bg-primary/10 text-primary rounded-lg">
-                    <Github className="h-5 w-5" />
+                    <Linkedin className="h-5 w-5" />
                   </div>
                   <div>
                     <div className="font-medium">LinkedIn</div>
                     <div className="text-muted-foreground">
                       <a href={contactInfo.social.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                        View Profile
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="flex items-center space-x-3">
+                  <div className="p-2 bg-primary/10 text-primary rounded-lg">
+                    <Github className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <div className="font-medium">GitHub</div>
+                    <div className="text-muted-foreground">
+                      <a href={contactInfo.social.github} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                         View Profile
                       </a>
                     </div>
@@ -998,20 +1024,15 @@ ${formData.name}`);
       {/* Footer */}
       <footer className="py-8 border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-muted-foreground mb-4 md:mb-0">
-              © {new Date().getFullYear()} {heroData.name}. All rights reserved.
+          <div className="text-center">
+            <div className="text-lg font-bold mb-2">Shruti Keshri · Software Developer</div>
+            <div className="text-sm text-muted-foreground mb-4">
+              📧 <a href={`mailto:${contactInfo.email}`} className="hover:text-primary transition-colors">{contactInfo.email}</a>
+              {' '} · 🔗 <a href={contactInfo.social.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">LinkedIn</a>
+              {' '} | <a href={contactInfo.social.github} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GitHub</a>
             </div>
-            <div className="flex space-x-6">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="text-muted-foreground hover:text-primary transition-colors duration-200"
-                >
-                  {item.label}
-                </button>
-              ))}
+            <div className="text-sm text-muted-foreground">
+              © 2025 · Hyderabad, India — All Rights Reserved
             </div>
           </div>
         </div>
