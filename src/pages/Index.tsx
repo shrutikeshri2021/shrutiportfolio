@@ -116,14 +116,14 @@ const projectsData = [{
   image: '/lovable-uploads/0862d854-0bd2-4017-8a02-004d60d062ab.png',
   tech: ['Python', 'Streamlit', 'Google Speech API', 'OCR', 'NLP'],
   liveDemo: '#',
-  github: '#',
+  github: 'https://github.com/shrutikeshri2021/CodeX-Team',
   featured: true,
   glowColor: 'ming-teal'
 }, {
   id: 2,
   title: 'Dynamic Curriculum Mapping Dashboard',
   description: 'Interactive dashboard aligning course outcomes with learning objectives, improving evaluation efficiency by 25%.',
-  image: '/lovable-uploads/9f23b1af-0fdd-46a3-9935-48e492b26c2b.png',
+  image: '/lovable-uploads/19fc69ba-e6c9-424e-b76c-12d1e75a4ffe.png',
   tech: ['Firebase', 'JavaScript', 'Python', 'HTML/CSS'],
   liveDemo: '#',
   github: '#',
@@ -157,7 +157,7 @@ const certificationsData = [{
   title: 'Meta Full-Stack Developer Certificate',
   organization: 'Meta',
   year: '2024',
-  credentialUrl: '#',
+  credentialUrl: 'https://coursera.org/share/9723f46458adbe96e028802b1d6ae86c',
   level: 'Professional',
   glowColor: 'ming-teal'
 }, {
@@ -165,7 +165,7 @@ const certificationsData = [{
   title: 'Oracle Cloud Infrastructure Generative AI Professional (1Z0-1127-25)',
   organization: 'Oracle',
   year: '2025',
-  credentialUrl: '#',
+  credentialUrl: 'https://brm-certview.oracle.com/ords/certview/ecertificate?ssn=OC5466724&trackId=OCI25GAIOCP&key=e098072341068b73fb302dcda5bb65754b4bd5f4',
   level: 'Professional',
   glowColor: 'indigo-dye'
 }, {
@@ -173,7 +173,7 @@ const certificationsData = [{
   title: 'IBM AI Foundations',
   organization: 'IBM SkillsBuild',
   year: '2025',
-  credentialUrl: '#',
+  credentialUrl: 'https://coursera.org/share/d2b5613365e578fe3079eb8f6c356233',
   level: 'Foundation',
   glowColor: 'accent'
 }, {
@@ -189,7 +189,7 @@ const certificationsData = [{
   title: 'Coursera Git & GitHub Certificate',
   organization: 'Google/Coursera',
   year: '2024',
-  credentialUrl: '#',
+  credentialUrl: 'https://coursera.org/share/0f199fcb2732c3b1f3d76bc79b1287b9',
   level: 'Professional',
   glowColor: 'ming-teal'
 }, {
@@ -221,7 +221,7 @@ const certificationsData = [{
   title: 'Microsoft Learn Student Ambassador',
   organization: 'Microsoft',
   year: '2025',
-  credentialUrl: '#',
+  credentialUrl: 'https://mvp.microsoft.com/en-US/studentambassadors/profile/3cdbbf28-aebe-4611-91ab-0387a48889d8',
   level: 'Active',
   glowColor: 'ming-teal'
 }, {
@@ -229,7 +229,7 @@ const certificationsData = [{
   title: 'Oracle Cloud Infrastructure 2025 Developer Professional',
   organization: 'Oracle',
   year: '2025',
-  credentialUrl: '#',
+  credentialUrl: 'https://brm-certview.oracle.com/ords/certview/ecertificate?ssn=OC5466724&trackId=OCID25CP&key=ec2793dbe405d6a282a5ff5c3063d546cf923594',
   level: 'Professional',
   glowColor: 'indigo-dye'
 }];
