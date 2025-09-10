@@ -232,6 +232,54 @@ const certificationsData = [{
   credentialUrl: 'https://brm-certview.oracle.com/ords/certview/ecertificate?ssn=OC5466724&trackId=OCID25CP&key=ec2793dbe405d6a282a5ff5c3063d546cf923594',
   level: 'Professional',
   glowColor: 'indigo-dye'
+}, {
+  id: 11,
+  title: 'SQL Certificate',
+  organization: 'Coursera',
+  year: '2024',
+  credentialUrl: 'https://coursera.org/share/4caf12eb5a1a25239fcbaab0c792a567',
+  level: 'Professional',
+  glowColor: 'primary'
+}, {
+  id: 12,
+  title: 'JavaScript Certificate',
+  organization: 'Coursera',
+  year: '2024',
+  credentialUrl: 'https://coursera.org/share/982043969216a2950ae5630e45c1090e',
+  level: 'Professional',
+  glowColor: 'ming-teal'
+}, {
+  id: 13,
+  title: 'Java Certificate',
+  organization: 'Coursera',
+  year: '2024',
+  credentialUrl: 'https://coursera.org/share/7930ffa50a44c88570f1d77d57ad055d',
+  level: 'Professional',
+  glowColor: 'accent'
+}, {
+  id: 14,
+  title: 'Excel to Power BI Certificate',
+  organization: 'Coursera',
+  year: '2024',
+  credentialUrl: 'https://coursera.org/share/438feaf9852d2c637268bdb126948b2f',
+  level: 'Professional',
+  glowColor: 'indigo-dye'
+}, {
+  id: 15,
+  title: 'C Programming Certificate',
+  organization: 'Cisco',
+  year: '2024',
+  credentialUrl: '#',
+  level: 'Foundation',
+  glowColor: 'primary'
+}, {
+  id: 16,
+  title: 'Data Analytics Certificate',
+  organization: 'Forage - Deloitte',
+  year: '2024',
+  credentialUrl: '#',
+  level: 'Professional',
+  glowColor: 'ming-teal'
 }];
 
 // Contact Information - Edit your contact details
