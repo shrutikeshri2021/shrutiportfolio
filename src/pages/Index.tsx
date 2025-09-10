@@ -247,6 +247,7 @@ const contactInfo = {
 const Portfolio = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showAllCertifications, setShowAllCertifications] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -775,7 +776,14 @@ ${formData.name}`);
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {certificationsData.map((cert, index) => <motion.div key={cert.id} initial={{
+            {certificationsData
+              .filter((cert, index) => {
+                // Show only Meta, IBM AI, Coursera GitHub, Oracle Gen AI initially
+                const priorityCerts = ['Meta Full-Stack Developer Certificate', 'IBM AI Foundations', 'Coursera Git & GitHub Certificate', 'Oracle Cloud Infrastructure Generative AI Professional (1Z0-1127-25)'];
+                if (showAllCertifications) return true;
+                return priorityCerts.includes(cert.title);
+              })
+              .map((cert, index) => <motion.div key={cert.id} initial={{
             opacity: 0,
             y: 50
           }} whileInView={{
@@ -821,6 +829,26 @@ ${formData.name}`);
                 </Card>
               </motion.div>)}
           </div>
+          
+          {/* View More Button */}
+          {!showAllCertifications && (
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              transition={{ duration: 0.5, delay: 0.3 }} 
+              viewport={{ once: true }}
+              className="text-center mt-12"
+            >
+              <Button 
+                onClick={() => setShowAllCertifications(true)} 
+                variant="outline" 
+                size="lg"
+                className="px-8 py-3 hover:bg-primary/10 hover:border-primary/50 hover:text-primary transition-all duration-300"
+              >
+                View More Certifications
+              </Button>
+            </motion.div>
+          )}
         </div>
       </section>
 
