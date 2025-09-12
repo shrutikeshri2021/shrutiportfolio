@@ -514,7 +514,7 @@ ${formData.name}`);
               <div className="space-y-4 text-left">
                 <ul className="list-disc list-inside space-y-2">
                   <li>Computer Science Engineering undergraduate (CGPA 9.1/10)</li>
-                   <li>Experience as a Microsoft Learn Student Ambassador, Amazon ML Summer School Trainee, and Infosys Springboard AI Intern, ambassador at gov.in, ggsoc.let's upgrade</li>
+                   <li>Experience as a Microsoft Learn Student Ambassador, Amazon ML Summer School Trainee, and Infosys Springboard AI Intern, ambassador at gov.in, GGSoC, Let's Upgrade</li>
                    <li>Founder of the iLearn Community (500+ members)</li>
                   <li>Active member of Google Women Techmakers</li>
                   <li>Strong technical skills in C, Python, Java, JavaScript, SQL, and MERN Stack</li>
@@ -988,32 +988,14 @@ ${formData.name}`);
         }}>
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">Resume</h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Download my resume or view it online
+              <Eye className="h-5 w-5 inline mr-2" />
+              View it online
             </p>
             
-            <div className="glass-card shadow-medium p-8 mb-8">
-              <div className="text-center mb-6">
-                <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
-                  <Download className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">Ready to Download</h3>
-                <p className="text-muted-foreground text-sm">
-                  📝 Upload your resume PDF to <code>/public/resume.pdf</code> to enable downloads
-                </p>
-              </div>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <Button size="lg" className="gradient-primary" asChild>
-                <a href="/resume.pdf" download="Shrutika_Keshri_Resume.pdf">
-                  <Download className="h-5 w-5 mr-2" />
-                  Download Resume
-                </a>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-                  <Eye className="h-5 w-5 mr-2" />
-                  View Online
+                <a href="https://drive.google.com/file/d/1kMdn0EhKfTSXS49aGcPbTLkRvu-Kkz5f/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">
+                  Resume
                 </a>
               </Button>
             </div>
