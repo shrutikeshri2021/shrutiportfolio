@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Moon, Sun, Menu, X, Github, ExternalLink, Download, Eye, Mail, MapPin, Phone, Code, Palette, Server, Cloud, Award, GraduationCap, Heart, Linkedin } from 'lucide-react';
+import { Moon, Sun, Menu, X, Github, ExternalLink, Download, Eye, Mail, MapPin, Phone, Code, Palette, Server, Cloud, Award, GraduationCap, Heart, Linkedin, Star, Trophy, Users, Database } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { Progress } from '@/components/ui/progress';
 import { useToast } from '@/hooks/use-toast';
 import heroImage from '@/assets/hero-image.jpg';
 
@@ -101,10 +102,15 @@ const skillsData = {
     skills: ['Git', 'Canva', 'VS Code', 'Postman', 'Figma', 'Excel', 'PowerBI'],
     glowColor: 'accent'
   },
+  'Data Science': {
+    icon: Database,
+    skills: ['NumPy', 'Pandas'],
+    glowColor: 'primary'
+  },
   Cloud: {
     icon: Cloud,
     skills: ['Vercel', 'Supabase'],
-    glowColor: 'primary'
+    glowColor: 'ming-teal'
   }
 };
 
@@ -319,10 +325,16 @@ const Portfolio = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth'
-      });
+      // Force immediate close of mobile menu
       setMobileMenuOpen(false);
+      
+      // Add small delay for mobile devices
+      setTimeout(() => {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }, 100);
     }
   };
   const handleFormSubmit = (e: React.FormEvent) => {
@@ -502,8 +514,8 @@ ${formData.name}`);
               <div className="space-y-4 text-left">
                 <ul className="list-disc list-inside space-y-2">
                   <li>Computer Science Engineering undergraduate (CGPA 9.1/10)</li>
-                  <li>Experience as a Microsoft Learn Student Ambassador, Amazon ML Summer School Trainee, and Infosys Springboard AI Intern</li>
-                  <li>Founder of the iLearn Community (500+ members)</li>
+                   <li>Experience as a Microsoft Learn Student Ambassador, Amazon ML Summer School Trainee, and Infosys Springboard AI Intern, ambassador at gov.in, ggsoc.let's upgrade</li>
+                   <li>Founder of the iLearn Community (500+ members)</li>
                   <li>Active member of Google Women Techmakers</li>
                   <li>Strong technical skills in C, Python, Java, JavaScript, SQL, and MERN Stack</li>
                   <li>Passionate about building scalable, user-focused solutions</li>
@@ -571,52 +583,101 @@ ${formData.name}`);
             </p>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {Object.entries(skillsData).map(([category, data], categoryIndex) => {
-            const IconComponent = data.icon;
-            return <motion.div key={category} initial={{
-              opacity: 0,
-              y: 50
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} transition={{
-              duration: 0.8,
-              delay: categoryIndex * 0.2
-            }} viewport={{
-              once: true
-            }} className="group">
-                  <Card className="glass-card shadow-medium h-full relative overflow-hidden group-hover:scale-105 transition-all duration-500">
-                    {/* Animated glow border */}
-                    <div className={`absolute -inset-1 bg-gradient-to-r from-${data.glowColor}/30 via-${data.glowColor}/50 to-${data.glowColor}/30 rounded-lg blur opacity-0 group-hover:opacity-75 transition-all duration-500 animate-pulse -z-10`}></div>
-                    
-                    <CardHeader className="text-center relative z-10">
-                      <div className={`mx-auto mb-2 p-3 rounded-lg bg-${data.glowColor}/10 text-${data.glowColor} w-fit relative group-hover:shadow-lg group-hover:shadow-${data.glowColor}/25 transition-all duration-500`}>
-                        <div className={`absolute inset-0 bg-${data.glowColor}/20 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-                        <IconComponent className="h-6 w-6 relative z-10" />
-                      </div>
-                      <CardTitle className="text-lg font-bold">{category}</CardTitle>
-                    </CardHeader>
-                    <CardContent className="relative z-10">
-                      <div className="flex flex-wrap gap-2">
-                        {data.skills.map((skill, skillIndex) => <motion.span key={skill} initial={{
-                      opacity: 0,
-                      scale: 0.8
-                    }} whileInView={{
-                      opacity: 1,
-                      scale: 1
-                    }} transition={{
-                      duration: 0.3,
-                      delay: skillIndex * 0.1
-                    }} className={`px-3 py-1 bg-secondary/80 backdrop-blur-sm rounded-full text-sm font-medium text-secondary-foreground hover:bg-${data.glowColor}/20 hover:text-${data.glowColor} hover:shadow-md hover:shadow-${data.glowColor}/20 transition-all duration-300 cursor-default`}>
-                            {skill}
-                          </motion.span>)}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>;
-          })}
-          </div>
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+             {Object.entries(skillsData).map(([category, data], categoryIndex) => {
+             const IconComponent = data.icon;
+             return <motion.div key={category} initial={{
+               opacity: 0,
+               y: 50
+             }} whileInView={{
+               opacity: 1,
+               y: 0
+             }} transition={{
+               duration: 0.8,
+               delay: categoryIndex * 0.2
+             }} viewport={{
+               once: true
+             }} className="group">
+                   <Card className="glass-card shadow-medium h-full relative overflow-hidden group-hover:scale-105 transition-all duration-500">
+                     {/* Animated glow border */}
+                     <div className={`absolute -inset-1 bg-gradient-to-r from-${data.glowColor}/30 via-${data.glowColor}/50 to-${data.glowColor}/30 rounded-lg blur opacity-0 group-hover:opacity-75 transition-all duration-500 animate-pulse -z-10`}></div>
+                     
+                     <CardHeader className="text-center relative z-10">
+                       <div className={`mx-auto mb-2 p-3 rounded-lg bg-${data.glowColor}/10 text-${data.glowColor} w-fit relative group-hover:shadow-lg group-hover:shadow-${data.glowColor}/25 transition-all duration-500`}>
+                         <div className={`absolute inset-0 bg-${data.glowColor}/20 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+                         <IconComponent className="h-6 w-6 relative z-10" />
+                       </div>
+                       <CardTitle className="text-lg font-bold">{category}</CardTitle>
+                     </CardHeader>
+                     <CardContent className="relative z-10">
+                       <div className="flex flex-wrap gap-2">
+                         {data.skills.map((skill, skillIndex) => <motion.span key={skill} initial={{
+                       opacity: 0,
+                       scale: 0.8
+                     }} whileInView={{
+                       opacity: 1,
+                       scale: 1
+                     }} transition={{
+                       duration: 0.3,
+                       delay: skillIndex * 0.1
+                     }} className={`px-3 py-1 bg-secondary/80 backdrop-blur-sm rounded-full text-sm font-medium text-secondary-foreground hover:bg-${data.glowColor}/20 hover:text-${data.glowColor} hover:shadow-md hover:shadow-${data.glowColor}/20 transition-all duration-300 cursor-default`}>
+                             {skill}
+                           </motion.span>)}
+                       </div>
+                     </CardContent>
+                   </Card>
+                 </motion.div>;
+           })}
+           </div>
+
+           {/* Tech Stack Progress Section */}
+           <motion.div 
+             initial={{ opacity: 0, y: 50 }} 
+             whileInView={{ opacity: 1, y: 0 }} 
+             transition={{ duration: 0.8, delay: 0.5 }} 
+             viewport={{ once: true }}
+             className="mt-16"
+           >
+             <Card className="glass-card shadow-medium relative overflow-hidden">
+               <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-accent/20 to-ming-teal/20 rounded-lg blur opacity-75 transition-all duration-500 -z-10"></div>
+               
+               <CardHeader className="text-center relative z-10">
+                 <div className="mx-auto mb-4 p-3 rounded-lg bg-primary/10 text-primary w-fit">
+                   <Server className="h-8 w-8" />
+                 </div>
+                 <CardTitle className="text-2xl font-bold gradient-text">Tech Stack Proficiency</CardTitle>
+                 <CardDescription>My expertise levels in core technologies</CardDescription>
+               </CardHeader>
+               
+               <CardContent className="relative z-10 space-y-6">
+                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                   <div className="space-y-3">
+                     <div className="flex justify-between items-center">
+                       <span className="font-semibold text-ming-teal">MERN Stack</span>
+                       <span className="text-sm text-muted-foreground">70%</span>
+                     </div>
+                     <Progress value={70} className="h-3" />
+                   </div>
+                   
+                   <div className="space-y-3">
+                     <div className="flex justify-between items-center">
+                       <span className="font-semibold text-accent">Frontend</span>
+                       <span className="text-sm text-muted-foreground">90%</span>
+                     </div>
+                     <Progress value={90} className="h-3" />
+                   </div>
+                   
+                   <div className="space-y-3">
+                     <div className="flex justify-between items-center">
+                       <span className="font-semibold text-indigo-dye">Machine Learning</span>
+                       <span className="text-sm text-muted-foreground">30%</span>
+                     </div>
+                     <Progress value={30} className="h-3" />
+                   </div>
+                 </div>
+               </CardContent>
+             </Card>
+           </motion.div>
         </div>
       </section>
 
@@ -654,30 +715,41 @@ ${formData.name}`);
             once: true
           }} className="group">
                 <Card className="glass-card shadow-medium hover:shadow-large transition-all duration-500 h-full relative overflow-hidden group-hover:scale-105">
-                  {/* Glow effects */}
-                  <div className={`absolute -inset-1 bg-gradient-to-r from-${experience.glowColor}/20 via-${experience.glowColor}/30 to-${experience.glowColor}/20 rounded-lg blur opacity-0 group-hover:opacity-75 transition-all duration-500 -z-10`}></div>
-                  
-                  <CardHeader className="relative z-10">
-                    <div className="flex justify-between items-start mb-3">
-                      <div className="flex-1">
-                        <CardTitle className="text-lg font-bold group-hover:text-primary transition-colors duration-300 mb-2">
-                          {experience.title}
-                        </CardTitle>
-                        <div className="text-base font-semibold text-muted-foreground mb-1">
-                          {experience.company}
-                        </div>
-                        <div className="text-sm text-muted-foreground mb-2">
-                          {experience.duration}
-                        </div>
-                        <div className="text-sm text-muted-foreground">
-                          📍 {experience.location}
-                        </div>
-                      </div>
-                      <span className={`px-3 py-1 bg-${experience.glowColor}/90 text-white rounded-full text-xs font-bold shadow-lg shadow-${experience.glowColor}/25`}>
-                        {experience.type}
-                      </span>
-                    </div>
-                  </CardHeader>
+                   {/* Light background highlight */}
+                   <div className={`absolute inset-0 ${index % 2 === 0 ? 'bg-[#d4a8d6]/10' : 'bg-[#a8afd6]/10'} rounded-lg`}></div>
+                   
+                   {/* Glow effects */}
+                   <div className={`absolute -inset-1 bg-gradient-to-r from-${experience.glowColor}/20 via-${experience.glowColor}/30 to-${experience.glowColor}/20 rounded-lg blur opacity-0 group-hover:opacity-75 transition-all duration-500 -z-10`}></div>
+                   
+                   <CardHeader className="relative z-10">
+                     <div className="flex justify-between items-start mb-3">
+                       <div className="flex-1">
+                         <CardTitle className="text-lg font-bold group-hover:text-primary transition-colors duration-300 mb-2">
+                           {experience.title}
+                         </CardTitle>
+                         <div className="text-base font-semibold text-muted-foreground mb-1">
+                           {experience.company}
+                         </div>
+                         <div className="text-sm text-muted-foreground mb-2">
+                           {experience.duration}
+                         </div>
+                         <div className="text-sm text-muted-foreground">
+                           📍 {experience.location}
+                         </div>
+                       </div>
+                       <div className="flex flex-col items-end gap-2">
+                         {/* Professional icon */}
+                         <div className={`p-2 rounded-full bg-${experience.glowColor}/20 text-${experience.glowColor}`}>
+                           {index % 3 === 0 ? <Star className="h-4 w-4" /> : 
+                            index % 3 === 1 ? <Trophy className="h-4 w-4" /> : 
+                            <Users className="h-4 w-4" />}
+                         </div>
+                         <span className={`px-3 py-1 bg-${experience.glowColor}/90 text-white rounded-full text-xs font-bold shadow-lg shadow-${experience.glowColor}/25`}>
+                           {experience.type}
+                         </span>
+                       </div>
+                     </div>
+                   </CardHeader>
                   
                   <CardContent className="relative z-10">
                     <CardDescription className="text-sm leading-relaxed mb-4">
